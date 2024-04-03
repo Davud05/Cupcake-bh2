@@ -1,9 +1,9 @@
 package app.controllers;
 
-//import app.entities.c4.Food;
-//import app.exceptions.DatabaseException;
+import app.entities.User;
+import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-//import app.persistence.c4.FoodMapper;
+import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -23,7 +23,7 @@ public class c4UserController {
         if (!(("Choose month").equals(foodMonth)) || !(("Choose category").equals(foodCategory))) {
 
             try {
-                List<Food> foodList = FoodMapper.search(foodMonth, foodCategory, connectionPool);
+                List<User> foodList = UserMapper.search(foodMonth, foodCategory, connectionPool);
                 if (foodList.isEmpty()) {
                     ctx.attribute("message", "There is no food in season in the selected month or category");
                     ctx.render("c4/index.html");
