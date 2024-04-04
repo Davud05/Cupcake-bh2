@@ -36,7 +36,6 @@ public class FoodController {
             }
         }
 
-
     }
 
     private static void index(Context ctx, ConnectionPool connectionPool) {
