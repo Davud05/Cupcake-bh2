@@ -3,23 +3,21 @@ package app.entities;
 public class Top
 {
     private int topId;
-    private String topPrice;
+    private int topPrice;
     private String topName;
 
-    // Adjusting the constructor to align with the new member variables
-    public Top(int topId, String topPrice, String topName) {
+    public Top(int topId, int topPrice, String topName) {
         this.topId = topId;
         this.topPrice = topPrice;
         this.topName = topName;
     }
 
-    // Additional constructors or methods should be adjusted similarly if needed.
-
     public int getTopId() {
         return topId;
     }
 
-    public String getTopPrice() {
+
+    public int getTopPrice() {
         return topPrice;
     }
 
@@ -29,9 +27,10 @@ public class Top
 
     @Override
     public String toString() {
-        return "Food{" +
+
+        return "Top{" +
                 "topId=" + topId +
-                ", topPrice='" + topPrice + '\'' +
+                ", topPrice=" + topPrice +
                 ", topName='" + topName + '\'' +
                 '}';
     }

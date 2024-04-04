@@ -3,24 +3,22 @@ package app.entities;
 public class Bottom
 {
     private int bottomId;
-    private String bottomPrice;
+    private int bottomPrice;
     private String bottomName;
-    public Bottom(int bottomId, String bottomPrice, String bottomName) {
+
+
+    public Bottom(int bottomId, int bottomPrice, String bottomName) {
         this.bottomId = bottomId;
         this.bottomPrice = bottomPrice;
         this.bottomName = bottomName;
     }
 
-
-    // public Food(String bottomName) {
-    //    this.bottomName = bottomName;
-    // }
-
     public int getBottomId() {
         return bottomId;
     }
 
-    public String getBottomPrice() {
+
+    public int getBottomPrice() {
         return bottomPrice;
     }
 
@@ -32,7 +30,7 @@ public class Bottom
     public String toString() {
         return "Bottom{" +
                 "bottomId=" + bottomId +
-                ", bottomPrice='" + bottomPrice + '\'' +
+                ", bottomPrice=" + bottomPrice +
                 ", bottomName='" + bottomName + '\'' +
                 '}';
     }
