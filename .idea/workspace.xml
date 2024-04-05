@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jejol\IdeaProjects\Cupcake-bh2" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="app.controllers" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -89,7 +90,7 @@
       <updated>1712313072210</updated>
       <workItem from="1712313076076" duration="1931000" />
       <workItem from="1712315552541" duration="151000" />
-      <workItem from="1712316748898" duration="8858000" />
+      <workItem from="1712316748898" duration="9926000" />
     </task>
     <servers />
   </component>
