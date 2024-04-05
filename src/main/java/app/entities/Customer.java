@@ -2,17 +2,18 @@ package app.entities;
 
 public class Customer {
     int customerId;
+    String customerEmail;
     String customerName;
     String customerPassword;
-    String customerEmail;
     int customerBalance;
 
 
-    public Customer(int customerId, String customerPassword, String customerEmail) {
+    public Customer(int customerId, String customerEmail, String customerPassword) {
         this.customerId = customerId;
-        this.customerPassword = customerPassword;
         this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
     }
+
 
     public Customer(int customerId, String customerName, String customerPassword, String customerEmail, int customerBalance) {
         this.customerId = customerId;
