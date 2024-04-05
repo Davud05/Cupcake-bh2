@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/49df7241-0ddd-434d-b001-17f7a8972973/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/49df7241-0ddd-434d-b001-17f7a8972973/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,7 @@
       <updated>1712313072210</updated>
       <workItem from="1712313076076" duration="1931000" />
       <workItem from="1712315552541" duration="151000" />
-      <workItem from="1712316748898" duration="1179000" />
+      <workItem from="1712316748898" duration="8858000" />
     </task>
     <servers />
   </component>

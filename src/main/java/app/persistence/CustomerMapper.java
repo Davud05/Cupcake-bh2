@@ -40,17 +40,18 @@ public class CustomerMapper
         }
     }
 
-    public static void createCustomer(String customerEmail, String customerPassword, ConnectionPool connectionPool) throws DatabaseException
+    public static void createcustomer(String customerName, String customerPassword, String customerEmail, ConnectionPool connectionPool) throws DatabaseException
     {
-        String sql = "insert into customers (customer_email, customer_password) values (?,?)";
+        String sql = "insert into customers (customer_name, customer_password, customer_email)";
 
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql)
         )
         {
-            ps.setString(1, customerEmail);
+            ps.setString(1, customerName);
             ps.setString(2, customerPassword);
+            ps.setString(3, customerEmail);
 
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)

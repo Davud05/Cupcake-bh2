@@ -216,4 +216,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/java,windows,osx,intellij,maven
+# End of https://www.toptal.com/developers/gitignore/api/java,windows,osx,intellij,maven!/.idea/workspace.xml
+!/.idea/workspace.xml
