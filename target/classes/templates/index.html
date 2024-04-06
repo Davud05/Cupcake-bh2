@@ -1,63 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olsker Cupcakes</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/login-styles.css}" rel="stylesheet"/>
 </head>
+
 <body>
 <header>
-    <h1>Welcome to Olsker Cupcakes!</h1>
-
-    <h2>Order your cupcakes here :) </h2>
+    <a href="index.html" th:href="@{/}">
+        <img src="../public/images/fourthingsplus.png" th:src="@{/images/cupcake.png}" width="35%"/>
+    </a>
 </header>
-<main>
-    <form action="mailto:ilovecupcakes@cphbusiness.dk" method="post" enctype="text/plain">
-        <fieldset>
-            <legend>Order</legend>
-            <form method="post">
-                <div class="dropdowns-case">
-                    <select class="dropdowns" name="top" id="top">
-                        <option disabled selected>Choose Topping</option>
-                        <option value="Chocolate">Chocolate</option>
-                        <option value="Blueberry">Blueberry</option>
-                        <option value="Rasberry">Rasberry</option>
-                        <option value="Crispy">Crispy</option>
-                        <option value="Strawberry">Strawberry</option>
-                        <option value="Rum/Raisin">Rum/Raisin</option>
-                        <option value="Orange">Orange</option>
-                        <option value="Lemon">Lemon</option>
-                        <option value="Blue cheese">Blue cheese</option>
-                    </select>
-                    <br/>
-                    <br/>
-                    <br>
-                    <div class="dropdowns-case">
-                        <select class="dropdowns" name="bottom" id="bottom">
-                            <option disabled selected>Choose Bottom</option>
-                            <option value="Chocolate">Chocolate</option>
-                            <option value="Vanilla">Vanilla</option>
-                            <option value="Nutmeg">Nutmeg</option>
-                            <option value="Pistacio">Pistacio</option>
-                            <option value="Almond">Almond</option>
-                        </select>
-                        <br>
-                        <br>
-                        <label for="number">NUMBER OF CUPCAKES</label>
-                        <br>
-                        <br>
-                        <input type="number" id="number" name="number" min="1" max="100" value="1">
-                        <br>
-                        <br>
-                        <input type="submit" value="ORDER NOW!">
-                    </div>
-
-        </fieldset>
-    </form>
-</main>
-<footer>
-    <p>Olsker Cupcakes Orders</p>
-    <p>ilovecupcakes@cphbusiness.dk</p>
-</footer>
+    <div id="page-container">
+        <div id="page-content">
+            <h1>Cupcake</h1>
+                <div class="centered-form">
+                    <form method="post">
+                        <input type="text" name="customeremail" placeholder="Enter your Email.."/>
+                        <input type="password" name="customerpassword" placeholder="Enter your password..">
+                        <button type="submit" formaction="/login">Log in</button>
+                    </form>
+                </div>
+            <p class="errormessage" th:text="${message}"></p>
+            <a href="createcustomer">Create Customer</a>
+        </div>
+    </div>
+    <div th:if="${session.currentCustomer != null}">
+        <span th:text="${session.currentCustomer.customername}"> </span> |
+        <a href="/logout" th:href="@{/logout}">Logout</a>
+    </div>
 </body>
 </html>

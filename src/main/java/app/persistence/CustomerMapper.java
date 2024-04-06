@@ -40,7 +40,7 @@ public class CustomerMapper
         }
     }
 
-    public static void createcustomer(String customerName, String customerPassword, String customerEmail, ConnectionPool connectionPool) throws DatabaseException
+    public static void createCustomer(String customerName, String customerPassword, String customerEmail, ConnectionPool connectionPool) throws DatabaseException
     {
         String sql = "insert into customers (customer_name, customer_password, customer_email)";
 
