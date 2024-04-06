@@ -21,7 +21,7 @@ public class BottomMapper {
                 bottoms.add(new Bottom(rs.getInt("bottomId"), rs.getInt("bottomPrice"), rs.getString("bottomName")));
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Could not search bottoms by name");
+            throw new DatabaseException("Could not search bottoms by name", e.getMessage());
         }
         return bottoms;
     }

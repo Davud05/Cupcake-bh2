@@ -22,7 +22,7 @@ public class TopMapper {
                 tops.add(new Top(rs.getInt("topId"), rs.getInt("topPrice"), rs.getString("topName")));
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Could not search tops by name");
+            throw new DatabaseException("Could not search tops by name", e.getMessage());
         }
         return tops;
     }
