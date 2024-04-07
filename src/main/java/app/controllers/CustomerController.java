@@ -69,7 +69,7 @@ public class CustomerController
             ctx.sessionAttribute("currentCustomer", customer);
             // Hvis ja, send videre til forsiden med login besked
             ctx.attribute("message", "Du er nu logget ind");
-            ctx.render("index.html");
+            ctx.render("cupcake.html");
         }
         catch (DatabaseException e)
         {

@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/CustomerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/CustomerMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +108,9 @@
       <workItem from="1712405964910" duration="4101000" />
       <workItem from="1712430146931" duration="3489000" />
       <workItem from="1712434345759" duration="4134000" />
+      <workItem from="1712491359576" duration="1471000" />
+      <workItem from="1712493688326" duration="907000" />
+      <workItem from="1712494981342" duration="1054000" />
     </task>
     <servers />
   </component>
