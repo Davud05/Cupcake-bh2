@@ -36,7 +36,19 @@ public class ProductlineMapper {
     {
         Order newOrder = null;
 
-        String sql = "Insert into order (name, done, user_id) values (?,?,?)";
+        String sql = "INSERT INTO public.order (customer_id, order_date, order_price)\n" +
+                "SELECT \n" +
+                "    customer.customer_id, \n" +
+                "    CURRENT_DATE, \n" +
+                "    SUM(productline.productline_price) \n" +
+                "FROM \n" +
+                "    public.customer\n" +
+                "INNER JOIN \n" +
+                "    public.order ON customer.customer_id = public.order.customer_id WHERE \n" +
+                "INNER JOIN \n" +
+                "    public.productline ON public.productline.order_id = public.order.order_id WHERE \n" +
+                "GROUP BY \n" +
+                "    customer.customer_id;";
 
         try (
                 Connection connection = connectionPool.getConnection();
