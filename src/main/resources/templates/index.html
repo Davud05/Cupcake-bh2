@@ -28,7 +28,7 @@
         </div>
     </div>
     <div th:if="${session.currentCustomer != null}">
-        <span th:text="${session.currentCustomer.customername}"> </span> |
+        <span th:text="${session.currentCustomer.customeremail}"> </span> |
         <a href="/logout" th:href="@{/logout}">Logout</a>
     </div>
 </body>

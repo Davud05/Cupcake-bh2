@@ -23,7 +23,7 @@ public class CustomerController
     {
         // Hent form parametre
         String customerName = ctx.formParam("customername");
-        String password1 = ctx.formParam("password1");
+        String password1 = ctx.formParam("password");
         String password2 = ctx.formParam("password2");
         String customerEmail = ctx.pathParam("customeremail");
 

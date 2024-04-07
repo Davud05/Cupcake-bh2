@@ -7,8 +7,14 @@
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,35 +53,38 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.cupcake.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nb199/Desktop/CONTROL-ROOM/java/Cupcake-bh2/src/main/resources/templates&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Main.executor": "Run",
+    "JavaScript Debug.cupcake.html.executor": "Run",
+    "JavaScript Debug.cupcake_copy.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore_missing_gitignore": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nb199/Desktop/CONTROL-ROOM/java/Cupcake-bh2/src/main/resources/public/css",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\css" />
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\images" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
       <recent name="C:\Users\jejol\IdeaProjects\Cupcake-bh2" />
@@ -110,7 +119,8 @@
       <workItem from="1712434345759" duration="4134000" />
       <workItem from="1712491359576" duration="1471000" />
       <workItem from="1712493688326" duration="907000" />
-      <workItem from="1712494981342" duration="1054000" />
+      <workItem from="1712494981342" duration="5176000" />
+      <workItem from="1712502343196" duration="3478000" />
     </task>
     <servers />
   </component>

@@ -27,7 +27,7 @@
         </div>
         <p class="errormessage" th:text="${#ctx.message}"></p>
         <div th:if="${session.currentCustomer != null}">
-            <span th:text="${session.currentCustomer.customername}"> </span> |
+            <span th:text="${session.currentCustomer.customeremail}"> </span> |
             <a href="/logout" th:href="@{/logout}">Logout</a>
         </div>
     </div>
