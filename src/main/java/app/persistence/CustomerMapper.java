@@ -13,7 +13,7 @@ public class CustomerMapper
 
     public static Customer login(String customerEmail, String customerPassword, ConnectionPool connectionPool) throws DatabaseException
     {
-        String sql = "select * from customers where customer_email=? and customer_password=?";
+        String sql = "select * from customer where customer_email=? and customer_password=?";
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -42,7 +42,7 @@ public class CustomerMapper
 
     public static void createCustomer(String customerName, String customerPassword, String customerEmail, ConnectionPool connectionPool) throws DatabaseException
     {
-        String sql = "insert into customers (customer_name, customer_password, customer_email)";
+        String sql = "insert into customer (customer_name, customer_password, customer_email)";
 
         try (
                 Connection connection = connectionPool.getConnection();

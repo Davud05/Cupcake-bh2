@@ -16,16 +16,16 @@ public class CustomerController
         app.post("login", ctx -> login(ctx, connectionPool));
         app.get("logout", ctx -> logout(ctx));
         app.get("createcustomer", ctx -> ctx.render("createcustomer.html"));
-        app.post("createcustomer", ctx -> createcustomer(ctx, connectionPool));
+        app.post("createcustomer", ctx -> createCustomer(ctx, connectionPool));
     }
 
-    private static void createcustomer(Context ctx, ConnectionPool connectionPool)
+    private static void createCustomer(Context ctx, ConnectionPool connectionPool)
     {
         // Hent form parametre
-        String customerEmail = ctx.pathParam("customeremail");
+        String customerName = ctx.formParam("customername");
         String password1 = ctx.formParam("password1");
         String password2 = ctx.formParam("password2");
-        String customerName = ctx.formParam("customername");
+        String customerEmail = ctx.pathParam("customeremail");
 
         if (password1.equals(password2))
         {
