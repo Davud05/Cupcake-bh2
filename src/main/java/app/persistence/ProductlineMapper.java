@@ -23,7 +23,7 @@ public class ProductlineMapper {
             while (rs.next()) {
                 int topId = rs.getInt("top_id");
                 int bottomId = rs.getInt("bottom_id");
-                int productlinePrice = rs.getInt("top_price") + rs.getInt("bottom_id");
+                int productlinePrice = rs.getInt("top_price") + rs.getInt("bottom_price");
                 int productlineId = rs.getInt("productline_id");
                 productlineList.add(new Productline(productlineId, topId, bottomId, productlinePrice));
             }
@@ -32,22 +32,29 @@ public class ProductlineMapper {
         }
         return productlineList;
     }
-    public static Order addToOrder(Top cupcakeTop, Bottom cupcakeBottom, ConnectionPool connectionPool) throws DatabaseException
+    public static Order addToOrder(List<Productline> productlineList, int customerId, ConnectionPool connectionPool) throws DatabaseException
     {
         Order newOrder = null;
 
-        String sql = "insert into order (name, done, user_id) values (?,?,?)";
+        String sql = "Insert into order (name, done, user_id) values (?,?,?)";
 
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
         )
-        {
+        {   ResultSet rs = ps.executeQuery();
             ps.setString(1, taskName);
             ps.setBoolean(2, false);
             ps.setInt(3, user.getUserId());
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected == 1)
+                while (rs.next()) {
+                    int topId = rs.getInt("top_id");
+                    int bottomId = rs.getInt("bottom_id");
+                    int productlinePrice = rs.getInt("top_price") + rs.getInt("bottom_price");
+                    int productlineId = rs.getInt("productline_id");
+                    productlineList.add(new Productline(productlineId, topId, bottomId, productlinePrice));
+                }
             {
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();

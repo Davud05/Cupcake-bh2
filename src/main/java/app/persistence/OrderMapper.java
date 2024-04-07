@@ -13,7 +13,7 @@ public class OrderMapper {
 
     public static Order viewShoppingCart(int customerId, List<Productline> productlineList, ConnectionPool connectionPool) throws DatabaseException
     {
-        List<ProductlineList> orderList = new ArrayList<>();
+        List<Productline> orderList = new ArrayList<>();
         String sql = "select * from order where customer_id=? order by name";
 
         try (
