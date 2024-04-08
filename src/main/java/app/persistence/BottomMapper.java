@@ -10,19 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BottomMapper {
-    public List<Bottom> searchBottomsByName(String bottomName, ConnectionPool connectionPool) throws DatabaseException {
+
+
+
+    public List<Bottom> findAll(ConnectionPool connectionPool) throws DatabaseException {
         List<Bottom> bottoms = new ArrayList<>();
-        String sql = "SELECT * FROM bottom WHERE bottomName LIKE ?";
+        String sql = "SELECT * FROM bottom";
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, "%" + bottomName + "%");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 bottoms.add(new Bottom(rs.getInt("bottomId"), rs.getInt("bottomPrice"), rs.getString("bottomName")));
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Could not search bottoms by name", e.getMessage());
+            throw new DatabaseException("Could not retrieve all bottoms", e.getMessage());
         }
         return bottoms;
     }
 }
+

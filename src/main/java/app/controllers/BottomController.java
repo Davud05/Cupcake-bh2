@@ -11,23 +11,17 @@ import java.util.List;
 
 public class BottomController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("/bottoms", ctx -> index(ctx));
-        app.post("/bottoms/search", ctx -> searchBottoms(ctx, connectionPool));
+        app.get("/bottoms", ctx -> listBottoms(ctx, connectionPool));
     }
 
-    private static void searchBottoms(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String bottomName = ctx.formParam("name");
+    private static void listBottoms(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         try {
-            List<Bottom> bottomsList = new BottomMapper().searchBottomsByName(bottomName, connectionPool);
-            ctx.attribute("bottomsList", bottomsList);
-            ctx.render("/bottoms/index.html");
+            List<Bottom> bottoms = new BottomMapper().findAll(connectionPool); //
+            ctx.attribute("bottomsList", bottoms);
+            ctx.render("Cupcake-bh2/cupcake.html");  // Tilføj HTML(Men ved ikke hvordan) c4/index.html"
         } catch (DatabaseException e) {
-            ctx.attribute("message", "Error searching for bottoms: " + e.getMessage());
-            ctx.render("/bottoms/index.html");
+            ctx.attribute("message", "Error retrieving bottoms: " + e.getMessage());
+            ctx.render("Cupcake-bh2/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
         }
-    }
-
-    private static void index(Context ctx) {
-        ctx.render("/bottoms/index.html");
     }
 }
