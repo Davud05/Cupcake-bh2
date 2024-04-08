@@ -11,7 +11,7 @@ import java.util.List;
 
 public class OrderMapper {
 
-    public static List<Order> viewShoppingCart(int customerId, List<Productline> productlineList, ConnectionPool connectionPool) throws DatabaseException
+    public static List<Order> viewShoppingCart(int customerId, ConnectionPool connectionPool) throws DatabaseException
     {
         List<Order> orderList = new ArrayList<>();
         String sql = "select * from order where customer_id=?";

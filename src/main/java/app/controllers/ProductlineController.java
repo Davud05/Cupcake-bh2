@@ -31,7 +31,7 @@ public class ProductlineController {
                     ctx.attribute("message", "There are no cupcakes");
                     ctx.render("index.html");
                 } else {
-                    ctx.attribute("productlineList", productlineList);
+                    ctx.sessionAttribute("productlineList", productlineList);
                     ctx.render("index.html");
                 }
             } catch (DatabaseException e) {
@@ -47,14 +47,13 @@ public class ProductlineController {
         int customerId = customer.getCustomerId();
 
         try {
-
             Order newOrder = ProductlineMapper.addToOrder(customerId, connectionPool);
             ctx.attribute("message", "You have added to your order");
-            ctx.sessionAttribute("newOrder", newOrder);
+            ctx.sessionAttribute("customerOrder", newOrder);
             ctx.render("/cupcake.html");
 
         } catch (DatabaseException e) {
-            ctx.attribute("message", "The database connection failed");
+            ctx.attribute("message", "Something went wrong, try again");
             ctx.render("/cupcake.html");
         }
 
