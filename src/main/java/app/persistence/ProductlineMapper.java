@@ -36,65 +36,49 @@ public class ProductlineMapper {
     {
         Order newOrder = null;
 
-        String sql = "Insert into order (name, done, user_id) values (?,?,?)";
+        String sql = "INSERT INTO public.order (customer_id, order_date, order_price)\n" +
+                "SELECT \n" +
+                "    customer.customer_id, \n" +
+                "    CURRENT_DATE, \n" +
+                "    SUM(productline.productline_price) \n" +
+                "FROM \n" +
+                "    public.customer\n" +
+                "INNER JOIN \n" +
+                "    public.order ON customer.customer_id = public.order.customer_id WHERE customer.customer_id=? \n" +
+                "INNER JOIN \n" +
+                "    public.productline ON public.productline.order_id = public.order.order_id \n" +
+                "GROUP BY \n" +
+                "    customer.customer_id;";
 
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
         )
         {   ResultSet rs = ps.executeQuery();
-            ps.setString(1, taskName);
-            ps.setBoolean(2, false);
-            ps.setInt(3, user.getUserId());
+            ps.setInt(1, customerId);
             int rowsAffected = ps.executeUpdate();
+            ps.getGeneratedKeys();
             if (rowsAffected == 1)
                 while (rs.next()) {
-                    int topId = rs.getInt("top_id");
-                    int bottomId = rs.getInt("bottom_id");
-                    int productlinePrice = rs.getInt("top_price") + rs.getInt("bottom_price");
-                    int productlineId = rs.getInt("productline_id");
-                    productlineList.add(new Productline(productlineId, topId, bottomId, productlinePrice));
+                    int orderId = rs.getInt("order_id");
+                    int orderAmount = rs.getInt("order_amount");
+                    String orderDate = String.valueOf(rs.getDate("CURRENT_DATE"));
+                    int orderPrice = rs.getInt("productline_price");
+                    newOrder = new Order(orderId, customerId, orderAmount, orderDate, orderPrice);
                 }
+
+
+             else
             {
-                ResultSet rs = ps.getGeneratedKeys();
-                rs.next();
-                int newId = rs.getInt(1);
-                newTask = new Task(newId, taskName, false, user.getUserId());
-            } else
-            {
-                throw new DatabaseException("Fejl under indsætning af task: " + taskName);
+                throw new DatabaseException("Fejl under indsætning af ordre: " + newOrder);
             }
         }
         catch (SQLException e)
         {
             throw new DatabaseException("Fejl i DB connection", e.getMessage());
         }
-        return newTask;
+        return newOrder;
     }
-
-    public static void setDoneTo(boolean done, int taskId, ConnectionPool connectionPool) throws DatabaseException
-    {
-        String sql = "update task set done = ? where task_id = ?";
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql)
-        )
-        {
-            ps.setBoolean(1, done);
-            ps.setInt(2, taskId);
-            int rowsAffected = ps.executeUpdate();
-            if (rowsAffected != 1)
-            {
-                throw new DatabaseException("Fejl i opdatering af en task");
-            }
-        }
-        catch (SQLException e)
-        {
-            throw new DatabaseException("Fejl i opdatering af en task");
-        }
-    }
-
 
 
 }
