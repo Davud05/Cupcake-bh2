@@ -1,7 +1,6 @@
 package app.controllers;
 
-import app.entities.Food;
-import app.entities.Productline;
+import app.entities.*;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.FoodMapper;
@@ -15,19 +14,21 @@ public class ProductlineController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("/order", ctx -> index(ctx, connectionPool));
         app.post("/search", ctx -> search(ctx, connectionPool));
-        app.get("/search", ctx -> ctx.render("/index.html"));
-
+        app.get("/search", ctx -> ctx.render("/cupcake.html"));
+        app.post("/addOrder", ctx -> addToOrder(ctx, connectionPool));
+        app.get("/addOrder", ctx -> ctx.render("/createorder.html"));
     }
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String top = ctx.formParam("top");
         String bottom = ctx.formParam("bottom");
+        int productlineAmount = Integer.parseInt(ctx.formParam("quantity"));
         if (!(("Choose top").equals(top)) || !(("Choose bottom").equals(bottom))) {
 
             try {
-                List<Productline> productlineList = ProductlineMapper.search(top, bottom, connectionPool);
+                List<Productline> productlineList = ProductlineMapper.search(top, bottom, productlineAmount, connectionPool);
                 if (productlineList.isEmpty()) {
-                    ctx.attribute("message", "There is no cupcakes");
+                    ctx.attribute("message", "There are no cupcakes");
                     ctx.render("index.html");
                 } else {
                     ctx.attribute("productlineList", productlineList);
@@ -38,6 +39,26 @@ public class ProductlineController {
                 ctx.render("index.html");
             }
         }
+    }
+
+    private static void addToOrder (Context ctx, ConnectionPool connectionPool) {
+
+        Customer customer = ctx.sessionAttribute("currentCustomer");
+        int customerId = customer.getCustomerId();
+
+        try {
+
+            Order newOrder = ProductlineMapper.addToOrder(customerId, connectionPool);
+            ctx.attribute("message", "You have added to your order");
+            ctx.sessionAttribute("newOrder", newOrder);
+            ctx.render("/cupcake.html");
+
+        } catch (DatabaseException e) {
+            ctx.attribute("message", "The database connection failed");
+            ctx.render("/cupcake.html");
+        }
+
+
     }
 
     private static void index(Context ctx, ConnectionPool connectionPool) {

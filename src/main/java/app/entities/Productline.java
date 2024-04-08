@@ -18,8 +18,9 @@ public class Productline {
         this.productlinePrice = productlinePrice;
     }
 
-    public Productline(int productlineId, int cupcakeTopId, int cupcakeBottomId, int productlinePrice) {
+    public Productline(int productlineId, int productlineAmount, int cupcakeTopId, int cupcakeBottomId, int productlinePrice) {
         this.productlineId = productlineId;
+        this.productlineAmount = productlineAmount;
         this.cupcakeTopId = cupcakeTopId;
         this.cupcakeBottomId = cupcakeBottomId;
         this.productlinePrice = productlinePrice;

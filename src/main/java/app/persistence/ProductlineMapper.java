@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ProductlineMapper {
 
-    public static List<Productline> search(String topName, String bottomName, ConnectionPool connectionPool) throws DatabaseException {
+    public static List<Productline> search(String topName, String bottomName, int productlineAmount, ConnectionPool connectionPool) throws DatabaseException {
         List<Productline> productlineList = new ArrayList<>();
         String sql = "SELECT * FROM productline INNER JOIN cupcake_top as c_top ON c_top.top_id = productline.top_id " +
                 "INNER JOIN cupcake_bottom as c_bot ON c_bot.bottom_id = productline.bottom_id WHERE c_top.top_name=? AND c_bot.bottom_name=?";
@@ -25,14 +25,14 @@ public class ProductlineMapper {
                 int bottomId = rs.getInt("bottom_id");
                 int productlinePrice = rs.getInt("top_price") + rs.getInt("bottom_price");
                 int productlineId = rs.getInt("productline_id");
-                productlineList.add(new Productline(productlineId, topId, bottomId, productlinePrice));
+                productlineList.add(new Productline(productlineId, productlineAmount, topId, bottomId, productlinePrice));
             }
         } catch (SQLException e) {
             throw new DatabaseException("The database search failed", e.getMessage());
         }
         return productlineList;
     }
-    public static Order addToOrder(List<Productline> productlineList, int customerId, ConnectionPool connectionPool) throws DatabaseException
+    public static Order addToOrder(int customerId, ConnectionPool connectionPool) throws DatabaseException
     {
         Order newOrder = null;
 
