@@ -1,4 +1,4 @@
-/* package app.persistence;
+ package app.persistence;
 
 import app.entities.*;
 import app.exceptions.DatabaseException;
@@ -82,4 +82,3 @@ public class ProductlineMapper {
 
 
 }
-*/

@@ -11,9 +11,9 @@ import java.util.List;
 
 public class TopMapper {
 
-    public List<Top> searchTopsByName(String topName, ConnectionPool connectionPool) throws DatabaseException {
+    public List<Top> searchTops(String topName, ConnectionPool connectionPool) throws DatabaseException {
         List<Top> tops = new ArrayList<>();
-        String sql = "SELECT * FROM top WHERE topName LIKE ?";
+        String sql = "SELECT * FROM top";
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, "%" + topName + "%");

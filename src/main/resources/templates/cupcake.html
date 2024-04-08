@@ -39,6 +39,10 @@
 
         <div id="dropdowns">
             <select name="bottom" id="bottom">
+
+                    <!-- Loop through the list using Thymeleaf -->
+                    <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
+
                 <option>Vælg bund</option>
                 <option value="chocolate">Chokolade (5 kr)</option>
                 <option value="vanilla">Vanille (8 kr)</option>
