@@ -3,6 +3,7 @@ package app;
 import app.config.ThymeleafConfig;
 import app.controllers.CustomerController;
 import app.controllers.OrderController;
+import app.controllers.TaskController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -27,9 +28,10 @@ public class Main {
 
 
         // Routing
-        app.get("/", ctx -> ctx.render("index.html"));
+        app.get("/", ctx -> ctx.render("/index.html"));
 
         CustomerController.addRoutes(app, connectionPool);
         OrderController.addRoutes(app, connectionPool);
+        TaskController.addRoutes(app, connectionPool);
     }
 }

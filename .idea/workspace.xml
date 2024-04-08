@@ -6,14 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/CustomerMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/FoodController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/FoodController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Food.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Orderline.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/Orderline.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/exceptions/DatabaseException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/exceptions/DatabaseException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/CustomerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/persistence/CustomerMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +45,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;m4cfly&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Davud05/Cupcake-bh2.git&quot;,
+    &quot;accountId&quot;: &quot;d5955f1d-11f6-4d99-8434-e8643a925d18&quot;
+  }
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -57,19 +78,23 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Application.Main.executor": "Run",
+    "JavaScript Debug.buycupcakes.html.executor": "Run",
+    "JavaScript Debug.createcustomer.html.executor": "Run",
     "JavaScript Debug.cupcake.html.executor": "Run",
     "JavaScript Debug.cupcake_copy.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.task.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "customer__final",
     "ignore_missing_gitignore": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nb199/Desktop/CONTROL-ROOM/java/Cupcake-bh2/src/main/resources/public/css",
+    "last_opened_file_path": "C:/Users/nb199/Desktop/CONTROL-ROOM/java/Cupcake-bh2/src/main/resources/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.general",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -80,8 +105,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\css" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\java\app\persistence" />
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\java\app\entities" />
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\java\app\controllers" />
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\images" />
@@ -121,6 +149,10 @@
       <workItem from="1712493688326" duration="907000" />
       <workItem from="1712494981342" duration="5176000" />
       <workItem from="1712502343196" duration="3478000" />
+      <workItem from="1712533940551" duration="392000" />
+      <workItem from="1712534373693" duration="6545000" />
+      <workItem from="1712542385142" duration="2633000" />
+      <workItem from="1712545364184" duration="4131000" />
     </task>
     <servers />
   </component>
@@ -147,5 +179,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

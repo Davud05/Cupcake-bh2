@@ -7,7 +7,8 @@ public class Customer {
     String customerPassword;
     int customerBalance;
 
-
+    public Customer() {
+    }
     public Customer(int customerId, String customerEmail, String customerPassword) {
         this.customerId = customerId;
         this.customerEmail = customerEmail;
@@ -21,6 +22,14 @@ public class Customer {
         this.customerPassword = customerPassword;
         this.customerEmail = customerEmail;
         this.customerBalance = customerBalance;
+    }
+
+
+
+    public Customer(String customerName, String customerPassword, String customerEmail) {
+        this.customerName = customerName;
+        this.customerPassword = customerPassword;
+        this.customerEmail = customerEmail;
     }
 
     @Override

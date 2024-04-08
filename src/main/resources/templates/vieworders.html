@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>Tasks</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<a href="index.html" th:href="@{/}">
+<img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" width="35%"/>
+</a>
+
+<div id="page-container">
+
+    <div id="page-content">
+        <h1>Welcome, <span th:text="${session.currentUser.username}"></span></h1>
+        <div class="centered-form">
+            <form method="post">
+                <input type="text" name="taskname" placeholder="add new task"/>
+                <button type="submit" formaction="addtask">Add</button>
+            </form>
+        </div>
+        <h2>Todo</h2>
+        <table class="task-table">
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>EXTRA</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="task: ${taskList}">
+                <td th:text="${taskName}"></td>
+                <td>
+
+                </td>
+                <td>
+                    <button type="submit" formaction="/done" th:value="${taskId}">Done</button>
+                   <!-- <button type="submit" formaction="/done" th:value="${task.id}">Done</button>
+               -->
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <h2>Done</h2>
+        <div th:if="${session.currentUser != null}">
+            <span th:text="${session.currentUser.username}"> </span> |
+            <a href="/logout" th:href="@{/logout}">Logout</a>
+        </div>
+
+
+        <p class="errormessage" th:text="${#ctx.message}"></p>
+        <a href="/createuser">Create Account</a>
+    </div>
+</div>
+</body>
+</html>

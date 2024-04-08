@@ -13,32 +13,47 @@ public class CustomerController
 {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
-        app.post("login", ctx -> login(ctx, connectionPool));
-        app.get("logout", ctx -> logout(ctx));
-        app.get("createcustomer", ctx -> ctx.render("createcustomer.html"));
-        app.post("createcustomer", ctx -> createCustomer(ctx, connectionPool));
+
+        app.get("/createorder", ctx -> ctx.render("createorder.html"));
+        app.post("/createorders", ctx -> createOrder(ctx, connectionPool));
+
+        app.get("/vieworders", ctx -> ctx.render("vieworders.html"));
+        app.post("/vieworders", ctx -> viewOrder(ctx, connectionPool));
+
+        app.get("/createcustomer", ctx -> ctx.render("createcustomer.html"));
+        app.post("/createcustomer", ctx -> createCustomer(ctx, connectionPool));
+        app.post("/login", ctx -> login(ctx, connectionPool));
+        app.get("/logout", ctx -> logout(ctx));
+    }
+
+    private static void viewOrder(Context ctx, ConnectionPool connectionPool) {
+
+    }
+
+    private static void createOrder(Context ctx, ConnectionPool connectionPool) {
+
     }
 
     private static void createCustomer(Context ctx, ConnectionPool connectionPool)
     {
         // Hent form parametre
-        String customerName = ctx.formParam("customername");
-        String password1 = ctx.formParam("password");
+        String customerEmail = ctx.formParam("username");
+        String password1 = ctx.formParam("password1");
         String password2 = ctx.formParam("password2");
-        String customerEmail = ctx.pathParam("customeremail");
 
         if (password1.equals(password2))
         {
             try
             {
-                CustomerMapper.createCustomer(customerEmail, password1, customerName, connectionPool);
-                ctx.attribute("message", "Du er hermed oprettet med din email: " + customerEmail +
+                CustomerMapper.createCustomer(customerEmail, password1, password2, connectionPool);
+                ctx.attribute("message", "Du er hermed oprettet med brugernavn: " + customerEmail +
                         ". Nu skal du logge på.");
-                ctx.render("index.html");
+                ctx.render("cupcake.html");
             }
+
             catch (DatabaseException e)
             {
-                ctx.attribute("message", "Din email findes allerede i vores system. Prøv igen, eller log ind");
+                ctx.attribute("message", "Dit brugernavn findes allerede. Prøv igen, eller log ind");
                 ctx.render("createcustomer.html");
             }
         } else
@@ -69,13 +84,13 @@ public class CustomerController
             ctx.sessionAttribute("currentCustomer", customer);
             // Hvis ja, send videre til forsiden med login besked
             ctx.attribute("message", "Du er nu logget ind");
-            ctx.render("cupcake.html");
+            ctx.render("/cupcake.html");
         }
         catch (DatabaseException e)
         {
             // Hvis nej, send tilbage til login side med fejl besked
             ctx.attribute("message", e.getMessage() );
-            ctx.render("index.html");
+            ctx.render("/index.html");
         }
 
     }
