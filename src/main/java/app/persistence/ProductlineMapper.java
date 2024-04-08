@@ -28,7 +28,7 @@ public class ProductlineMapper {
                 productlineList.add(new Productline(productlineId, topId, bottomId, productlinePrice));
             }
         } catch (SQLException e) {
-            throw new DatabaseException("DB Fejl", e.getMessage());
+            throw new DatabaseException("The database search failed", e.getMessage());
         }
         return productlineList;
     }
@@ -70,12 +70,12 @@ public class ProductlineMapper {
 
              else
             {
-                throw new DatabaseException("Fejl under indsætning af ordre: " + newOrder);
+                throw new DatabaseException("Error while adding an order " + newOrder);
             }
         }
         catch (SQLException e)
         {
-            throw new DatabaseException("Fejl i DB connection", e.getMessage());
+            throw new DatabaseException("Error in database connection", e.getMessage());
         }
         return newOrder;
     }

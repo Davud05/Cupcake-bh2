@@ -35,7 +35,7 @@ public class OrderMapper {
         }
         catch (SQLException e)
         {
-            throw new DatabaseException("Fejl!!!!", e.getMessage());
+            throw new DatabaseException("Something went wrong with the database", e.getMessage());
         }
         return orderList;
     }
@@ -101,25 +101,31 @@ public class OrderMapper {
 
     public static void payForOrder(Order newOrder, int customerId, ConnectionPool connectionPool) throws DatabaseException
     {
-        String sql = "update customer set customer.customer_balance where customer_id=?" +
-                "INNER JOIN order on order.customer_id = customer=customer_id";
+        String sql = "UPDATE public.customer \n" +
+                "SET customer_balance = customer_balance - (\n" +
+                "    SELECT SUM(order_price)\n" +
+                "    FROM public.order\n" +
+                "    WHERE public.customer.customer_id=? = public.order.customer_id\n" +
+                ");";
+
 
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql)
         )
         {
-            ps.setBoolean(1, done);
-            ps.setInt(2, taskId);
+            ps.setInt(1, customerId);
+
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)
             {
-                throw new DatabaseException("Fejl i opdatering af en task");
+                throw new DatabaseException("The transaction did not go through");
             }
+
         }
         catch (SQLException e)
         {
-            throw new DatabaseException("Fejl i opdatering af en task");
+            throw new DatabaseException("Error while performing transaction");
         }
     }
 }
