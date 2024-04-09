@@ -11,19 +11,21 @@ import java.util.List;
 
 public class TopMapper {
 
-    public List<Top> searchTops(String topName, ConnectionPool connectionPool) throws DatabaseException {
+
+
+    public List<Top> findAll(ConnectionPool connectionPool) throws DatabaseException {
         List<Top> tops = new ArrayList<>();
         String sql = "SELECT * FROM top";
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, "%" + topName + "%");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 tops.add(new Top(rs.getInt("topId"), rs.getInt("topPrice"), rs.getString("topName")));
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Could not search tops by name", e.getMessage());
+            throw new DatabaseException("Could not retrieve all tops", e.getMessage());
         }
         return tops;
     }
 }
+
