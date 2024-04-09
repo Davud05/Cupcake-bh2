@@ -18,18 +18,18 @@ public class Customer {
 
     public Customer(int customerId, String customerName, String customerPassword, String customerEmail, int customerBalance) {
         this.customerId = customerId;
-        this.customerName = customerName;
-        this.customerPassword = customerPassword;
         this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
         this.customerBalance = customerBalance;
+        this.customerName = customerName;
     }
 
 
 
-    public Customer(String customerName, String customerPassword, String customerEmail) {
-        this.customerName = customerName;
-        this.customerPassword = customerPassword;
+    public Customer(String customerEmail, String customerPassword,String customerName) {
         this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
+        this.customerName = customerName;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Customer {
         return customerName;
     }
 
-    public String getCustomerPassword() {
+    public String getCustomerPassword1() {
         return customerPassword;
     }
 

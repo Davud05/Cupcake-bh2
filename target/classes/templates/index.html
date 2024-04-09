@@ -4,19 +4,19 @@
 <title>Frontpage</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../public/css/styles.css" th:href="@{/css/login-styles.css}" rel="stylesheet"/>
+<link href="/css/login-styles.css" th:href="@{/css/login-styles.css}" rel="stylesheet"/>
 </head>
 
-<img src="../public/images/cupcakelogo.png" width="35%"/>
 <body>
 <header>
     <a href="index.html" th:href="@{/}">
-        <img src="../public/images/cupcakelogo.png" th:src="@{../public/images/cupcakelogo.png}" width="35%"/>
+        <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="35%"/>
     </a>
 </header>
     <div id="page-container">
         <div id="page-content">
             <h1>Cupcake</h1>
+
                 <div class="centered-form">
                     <form method="post">
                         <input type="text" name="customeremail" placeholder="Enter your Email.."/>

@@ -19,9 +19,9 @@
             <form method="post">
                 <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
                 <input type="password" name="customerpassword" placeholder="Enter your password..">
-                <input type="password" name="customerpassword2" placeholder="Repeat password..">
+                <input type="password" name="password2" placeholder="Repeat password..">
                 <input type="text" name="customername" placeholder="Enter your Name.."/>
-                <button type="submit" formaction="/createcustomer">Create Customer</button>
+                <button type="submit" formaction="/create-customer-success">Create Customer</button>
             </form>
         </div>
         <p class="errormessage" th:text="${#ctx.message}"></p>

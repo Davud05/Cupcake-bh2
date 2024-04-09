@@ -50,9 +50,9 @@ public class CustomerMapper
                 PreparedStatement ps = connection.prepareStatement(sql)
         )
         {
-            ps.setString(4, customerEmail);
-            ps.setString(3, customerPassword);
-            ps.setString(2, customerName);
+            ps.setString(1, customerEmail);
+            ps.setString(2, customerPassword);
+            ps.setString(3, customerName);
 
 
             int rowsAffected = ps.executeUpdate();

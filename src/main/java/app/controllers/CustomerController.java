@@ -1,18 +1,25 @@
 package app.controllers;
 
 import app.entities.Customer;
+import app.entities.Order;
+import app.entities.Productline;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.CustomerMapper;
+import app.persistence.ProductlineMapper;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+
+import java.util.List;
 
 public class CustomerController
 {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
+        app.post("search", ctx -> search(ctx, connectionPool));
+        app.get("search", ctx -> ctx.render("cupcake.html"));
 
         app.get("createorder", ctx -> ctx.render("createorder.html"));
         app.post("createorders", ctx -> createOrder(ctx, connectionPool));
@@ -20,32 +27,81 @@ public class CustomerController
         app.get("vieworders", ctx -> ctx.render("vieworders.html"));
         app.post("vieworders", ctx -> viewOrder(ctx, connectionPool));
 
+        app.post("create-customer-success", ctx -> createCustomer(ctx, connectionPool));
+        app.get("create-customer-success", ctx -> ctx.render("index.html"));
         app.get("createcustomer", ctx -> ctx.render("createcustomer.html"));
         app.post("createcustomer", ctx -> createCustomer(ctx, connectionPool));
 
         app.post("login", ctx -> login(ctx, connectionPool));
         app.get("logout", ctx -> logout(ctx));
+        app.get("cupcake", ctx -> ctx.render("cupcake.html"));
+    }
+
+    private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        String top = ctx.formParam("top");
+        String bottom = ctx.formParam("bottom");
+        int productlineAmount = Integer.parseInt(ctx.formParam("quantity"));
+        if (!(("Choose top").equals(top)) || !(("Choose bottom").equals(bottom))) {
+
+            try {
+                List<Productline> productlineList = ProductlineMapper.search(top, bottom, productlineAmount, connectionPool);
+                if (productlineList.isEmpty()) {
+                    ctx.attribute("message", "There are no cupcakes");
+                    ctx.render("index.html");
+                } else {
+                    ctx.sessionAttribute("productlineList", productlineList);
+                    ctx.render("index.html");
+                }
+            } catch (DatabaseException e) {
+                ctx.attribute("message", "Please choose categories!!!");
+                ctx.render("index.html");
+            }
+        }
+    }
+
+    private static void addToOrder (Context ctx, ConnectionPool connectionPool) {
+
+        Customer customer = ctx.sessionAttribute("currentCustomer");
+        int customerId = customer.getCustomerId();
+
+        try {
+            Order newOrder = ProductlineMapper.addToOrder(customerId, connectionPool);
+            ctx.attribute("message", "You have added to your order");
+            ctx.sessionAttribute("customerOrder", newOrder);
+            ctx.render("/cupcake.html");
+
+        } catch (DatabaseException e) {
+            ctx.attribute("message", "Something went wrong, try again");
+            ctx.render("/cupcake.html");
+        }
+
+
+    }
+
+    private static void index(Context ctx, ConnectionPool connectionPool) {
+        ctx.render("/index.html");
     }
 
     private static void viewOrder(Context ctx, ConnectionPool connectionPool) {
-        ctx.render("createcustomer.html");
     }
 
     private static void createOrder(Context ctx, ConnectionPool connectionPool) {
+
     }
 
     private static void createCustomer(Context ctx, ConnectionPool connectionPool)
     {
         // Hent form parametre
         String customeremail = ctx.formParam("customeremail");
-        String password1 = ctx.formParam("password1");
+        String customerpassword = ctx.formParam("customerpassword");
         String password2 = ctx.formParam("password2");
+        String customername = ctx.formParam("customername");
 
-        if (password1.equals(password2))
+        if (customerpassword.equals(password2))
         {
             try
             {
-                CustomerMapper.createCustomer(customeremail, password1, password2, connectionPool);
+                CustomerMapper.createCustomer(customeremail, customerpassword,customername, connectionPool);
                 ctx.attribute("message", "Du er hermed oprettet med email: " + customeremail +
                         ". Nu skal du logge på.");
                 ctx.render("index.html");
@@ -53,13 +109,13 @@ public class CustomerController
             catch (DatabaseException e)
             {
                 ctx.attribute("message", "Din Email findes allerede. Prøv igen, eller log ind");
-                ctx.render("createcustomer.html");
+                ctx.render("index.html");
             }
         }
         else
         {
             ctx.attribute("message", "Dine to passwords matcher ikke! Prøv igen");
-            ctx.render("createcustomer.html");
+            ctx.render("index.html");
         }
 
     }
