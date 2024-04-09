@@ -18,10 +18,10 @@ public class BottomController {
         try {
             List<Bottom> bottoms = new BottomMapper().findAll(connectionPool); //
             ctx.attribute("bottomsList", bottoms);
-            ctx.render("Cupcake-bh2/cupcake.html");  // Tilføj HTML(Men ved ikke hvordan) c4/index.html"
+            ctx.render("/cupcake.html");  // Tilføj HTML(Men ved ikke hvordan) c4/index.html"
         } catch (DatabaseException e) {
             ctx.attribute("message", "Error retrieving bottoms: " + e.getMessage());
-            ctx.render("Cupcake-bh2/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
+            ctx.render("/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
         }
     }
 }

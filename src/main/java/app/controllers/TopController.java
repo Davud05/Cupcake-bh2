@@ -18,10 +18,10 @@ public class TopController {
         try {
             List<Top> tops = new TopMapper().findAll(connectionPool);
             ctx.attribute("topsList", tops);
-            ctx.render("Cupcake-bh2/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
+            ctx.render("/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
         } catch (DatabaseException e) {
             ctx.attribute("message", "Error retrieving tops: " + e.getMessage());
-            ctx.render("Cupcake-bh2/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
+            ctx.render("/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
         }
     }
 }
