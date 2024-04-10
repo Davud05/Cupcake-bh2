@@ -1,14 +1,8 @@
 package app.controllers;
 
-import app.entities.Customer;
-import app.entities.Order;
-import app.entities.Productline;
-import app.entities.User;
+import app.entities.*;
 import app.exceptions.DatabaseException;
-import app.persistence.ConnectionPool;
-import app.persistence.CustomerMapper;
-import app.persistence.ProductlineMapper;
-import app.persistence.UserMapper;
+import app.persistence.*;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -21,11 +15,14 @@ public class CustomerController
         app.post("search", ctx -> search(ctx, connectionPool));
         app.get("search", ctx -> ctx.render("cupcake.html"));
 
-        app.get("createorder", ctx -> ctx.render("createorder.html"));
-        app.post("createorders", ctx -> createOrder(ctx, connectionPool));
+        app.post("cart", ctx -> createOrder(ctx, connectionPool));
+        app.get("cart", ctx -> ctx.render("cupcake.html"));
 
-        app.get("vieworders", ctx -> ctx.render("vieworders.html"));
+        app.post("createorders", ctx -> createOrder(ctx, connectionPool));
+        app.get("createorder", ctx -> ctx.render("createorder.html"));
+
         app.post("vieworders", ctx -> viewOrder(ctx, connectionPool));
+        app.get("vieworders", ctx -> ctx.render("vieworders.html"));
 
         app.post("create-customer-success", ctx -> createCustomer(ctx, connectionPool));
         app.get("create-customer-success", ctx -> ctx.render("index.html"));
@@ -36,7 +33,6 @@ public class CustomerController
         app.get("logout", ctx -> logout(ctx));
         app.get("cupcake", ctx -> ctx.render("cupcake.html"));
     }
-
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String top = ctx.formParam("top");
         String bottom = ctx.formParam("bottom");
@@ -75,7 +71,6 @@ public class CustomerController
             ctx.render("/cupcake.html");
         }
 
-
     }
 
     private static void index(Context ctx, ConnectionPool connectionPool) {
@@ -83,6 +78,7 @@ public class CustomerController
     }
 
     private static void viewOrder(Context ctx, ConnectionPool connectionPool) {
+        ctx.render("/allorders");
     }
 
     private static void createOrder(Context ctx, ConnectionPool connectionPool) {

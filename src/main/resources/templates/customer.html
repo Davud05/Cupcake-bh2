@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="page">
+    <header>
+        <a href="cupcake.html" th:href="@{/}">
+            <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="35%"/>
+        </a>
+    </header>
+    <nav>
+        <div id="left-nav">
+            <a href="/allorders.html">View All Orders</a>
+            <a href="/vieworder.html">Shopping Cart</a>
+        </div>
+        <div id="right-nav">
+            <div th:if="${session.currentCustomer != null}">
+                <span th:text="${session.currentCustomer.customeremail}"> </span> |
+                <a href="/logout" th:href="@{/logout}">Logout</a>
+            </div>
+            <span th:text="${session.currentCustomer.customername}"></span>
+        </div>
+    </nav>
+
+    <div id="content">
+
+        <div id="intro-text">
+            <h1>Velkommen ombord</h1>
+            <h2>Øens bedste cupcakes</h2>
+        </div>
+
+        <form method="post" formaction="/create-order-success">
+        <div id="dropdowns">
+<!--
+                <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
+                <input type="password" name="customerpassword" placeholder="Enter your password..">
+                <input type="password" name="customerpassword2" placeholder="Repeat password..">
+                <input type="text" name="customername" placeholder="Enter your Name.."/>
+-->
+
+
+                        <!-- Loop through the list using Thymeleaf -->
+                       <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
+-->
+                    <select name="top" id="top">
+                        <option selected disabled>Vælg top</option>
+                        <option value="chocolate">Chokolade (5 kr)</option>
+                    </select>
+                    <select name="bottom" id="bottom">
+                            <option selected disabled>Vælg bund</option>
+                            <option value="chocolate">Chokolade (5 kr)</option>
+                    </select>
+                    <input type="text" id="quantity" name="quantity" placeholder="Amount.."/>
+
+        </div>
+
+        <!--
+        <div id="comment">
+            <textarea cols="40" rows="4" placeholder="Har du en kommentar, så skriv den her ...">
+
+                </textarea>
+        </div>
+        -->
+
+
+        <div id="order-button">
+            <button type="submit">Bestil</button>
+        </div>
+        </form>
+
+    </div>
+
+
+
+
+    <p class="errormessage" th:text="${#ctx.message}"></p>
+</div>
+
+</body>
+</html>

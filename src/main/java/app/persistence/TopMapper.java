@@ -13,7 +13,7 @@ public class TopMapper {
 
 
 
-    public List<Top> findAll(ConnectionPool connectionPool) throws DatabaseException {
+    public List<Top> findAllTops(ConnectionPool connectionPool) throws DatabaseException {
         List<Top> tops = new ArrayList<>();
         String sql = "SELECT * FROM top";
         try (Connection connection = connectionPool.getConnection();

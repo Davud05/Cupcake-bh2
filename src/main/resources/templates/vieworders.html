@@ -16,7 +16,7 @@
 <div id="page-container">
 
     <div id="page-content">
-        <h1>Welcome, <span th:text="${session.currentUser.customername}"></span></h1>
+        <h1>Welcome, <span th:text="${session.currentCustomer.customername}"></span></h1>
         <div class="centered-form">
             <form method="post">
                 <input type="text" name="taskname" placeholder="add new task"/>
@@ -49,14 +49,14 @@
             </tbody>
         </table>
         <h2>Done</h2>
-        <div th:if="${session.currentUser != null}">
-            <span th:text="${session.currentUser.customername}"> </span> |
+        <div th:if="${session.currentCustomer != null}">
+            <span th:text="${session.currentCustomer.customername}"> </span> |
             <a href="/logout" th:href="@{/logout}">Logout</a>
         </div>
 
 
         <p class="errormessage" th:text="${#ctx.message}"></p>
-        <a href="/createuser">Create Account</a>
+        <a href="/createcustomer">Create Account</a>
     </div>
 </div>
 </body>

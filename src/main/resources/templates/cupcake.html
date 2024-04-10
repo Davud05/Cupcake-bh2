@@ -18,7 +18,8 @@
 
     <nav>
         <div id="left-nav">
-            <a href="/vieworders">View Orders</a>
+            <a href="/orders">View All Orders</a>
+            <a href="/cart">Shopping Cart</a>
         </div>
         <div id="right-nav">
             <div th:if="${session.currentCustomer != null}">
@@ -28,7 +29,6 @@
             <span th:text="${session.currentCustomer.customername}"></span>
         </div>
     </nav>
-
     <div id="content">
 
         <div id="intro-text">
@@ -36,43 +36,33 @@
             <h2>Øens bedste cupcakes</h2>
         </div>
 
-        <form method="post" formaction="/create-order-success">
-        <div id="dropdowns">
-<!--
-                <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
-                <input type="password" name="customerpassword" placeholder="Enter your password..">
-                <input type="password" name="customerpassword2" placeholder="Repeat password..">
-                <input type="text" name="customername" placeholder="Enter your Name.."/>
--->
+        <form method="post">
+            <div id="dropdowns">
+    <!--
+                    <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
+                    <input type="password" name="customerpassword" placeholder="Enter your password..">
+                    <input type="password" name="customerpassword2" placeholder="Repeat password..">
+                    <input type="text" name="customername" placeholder="Enter your Name.."/>
+    -->
+                            <!-- Loop through the list using Thymeleaf -->
+                           <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
+    -->
+                        <select name="top" id="top">
+                            <option th:each="top: ${topName}" th:value="${topPrice}"></option>
+                        </select>
+                        <select name="bottom" id="bottom">
+                                <option selected disabled>Vælg bund</option>
+                                <option th:each="top: ${topName}" th:value="${topPrice}"></option>
+                                <option value="chocolate">Chokolade (5 kr)</option>
+                        </select>
 
 
-                        <!-- Loop through the list using Thymeleaf -->
-                       <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
--->
-                    <select name="top" id="top">
-                        <option selected disabled>Vælg top</option>
-                        <option value="chocolate">Chokolade (5 kr)</option>
-                    </select>
-                    <select name="bottom" id="bottom">
-                            <option selected disabled>Vælg bund</option>
-                            <option value="chocolate">Chokolade (5 kr)</option>
-                    </select>
-                    <input type="text" id="quantity" name="quantity" placeholder="Amount.."/>
+                    <input type="text" name="quantity" placeholder="Amount"/>
 
-        </div>
-
-        <!--
-        <div id="comment">
-            <textarea cols="40" rows="4" placeholder="Har du en kommentar, så skriv den her ...">
-
-                </textarea>
-        </div>
-        -->
-
-
-        <div id="order-button">
-            <button type="submit">Bestil</button>
-        </div>
+            </div>
+            <div id="order-button">
+                <button type="submit" name="search" formaction="/search">Bestil</button>
+            </div>
         </form>
 
     </div>

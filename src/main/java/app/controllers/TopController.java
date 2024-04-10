@@ -1,4 +1,4 @@
-/*
+
 package app.controllers;
 
 import app.entities.Top;
@@ -12,18 +12,17 @@ import java.util.List;
 
 public class TopController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("/tops", ctx -> listTops(ctx, connectionPool));
+        app.get("/login", ctx -> listTops(ctx, connectionPool));
     }
 
     private static void listTops(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         try {
-            List<Top> tops = new TopMapper().findAll(connectionPool);
+            List<Top> tops = new TopMapper().findAllTops(connectionPool);
             ctx.attribute("topsList", tops);
-            ctx.render("/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
+            ctx.render("/cupcake.html"); // Tilføj HTML
         } catch (DatabaseException e) {
             ctx.attribute("message", "Error retrieving tops: " + e.getMessage());
-            ctx.render("/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)
+            ctx.render("/cupcake.html"); // Tilføj HTML
         }
     }
 }
- */
