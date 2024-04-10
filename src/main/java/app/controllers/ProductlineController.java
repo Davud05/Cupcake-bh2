@@ -60,6 +60,7 @@ public class ProductlineController {
 
     }
 
+
     private static void index(Context ctx, ConnectionPool connectionPool) {
         ctx.render("/index.html");
     }
