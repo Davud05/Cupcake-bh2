@@ -48,16 +48,28 @@
                            <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
     -->
                         <select name="top" id="top">
+                            <option selected disabled>Vælg topping</option>
                             <option th:each="top: ${topName}" th:value="${topPrice}"></option>
+                            <option value="chocolate">Chokolade (5 kr)</option>
+                            <option value="blueberry">Blåbær (5 kr)</option>
+                            <option value="raspberry">Hindbær (5 kr)</option>
+                            <option value="crispy">Crispy (6 kr)</option>
+                            <option value="strawberry">Jordbær (6 kr)</option>
+                            <option value="rum/raisin">Rom/russin (7 kr)</option>
+                            <option value="orange">Appelsin (8 kr)</option>
+                            <option value="lemon">Citron (8 kr)</option>
+
                         </select>
                         <select name="bottom" id="bottom">
                                 <option selected disabled>Vælg bund</option>
-                                <option th:each="top: ${topName}" th:value="${topPrice}"></option>
+                                <option th:each="bottom: ${bottomName}" th:value="${bottomPrice}"></option>
                                 <option value="chocolate">Chokolade (5 kr)</option>
+                                <option value="vanilla">Vanilje (5 kr)</option>
+                                <option value="nutmeg">Muskatnød (5 kr)</option>
+                                <option value="pistacio">Pistacie (6 kr)</option>
+                                <option value="almond">Mandel (7 kr)</option>
                         </select>
-
-
-                    <input type="text" name="quantity" placeholder="Amount"/>
+                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>
 
             </div>
             <div id="order-button">
