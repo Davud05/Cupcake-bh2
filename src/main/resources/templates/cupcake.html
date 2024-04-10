@@ -69,7 +69,16 @@
                                 <option value="pistacio">Pistacie (6 kr)</option>
                                 <option value="almond">Mandel (7 kr)</option>
                         </select>
-                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>
+                <select name="quantity" id="quantity">
+                    <option selected disabled>Vælg antal cupcakes</option>
+                    <option th:each="quantity: ${quantity}" th:value="${quantity}"></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+<!--                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
 
             </div>
             <div id="order-button">
