@@ -23,7 +23,7 @@ public class ProductlineController {
         String top = ctx.formParam("top");
         String bottom = ctx.formParam("bottom");
         int productlineAmount = Integer.parseInt(ctx.formParam("quantity"));
-        if (!(("Choose top").equals(top)) || !(("Choose bottom").equals(bottom))) {
+        if (!(("Vælg topping").equals(top)) || !(("Vælg bund").equals(bottom))) {
 
             try {
                 List<Productline> productlineList = ProductlineMapper.search(top, bottom, productlineAmount, connectionPool);
