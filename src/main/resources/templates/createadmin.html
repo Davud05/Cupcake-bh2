@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/login-styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div id="page-container">
+
+    <div id="page-content">
+        <h1>Create Admin account:</h1>
+        <p> Fill user informations</p>
+        <div class="centered-form">
+
+            <form method="post">
+                <input type="text" name="adminemail" placeholder="EMAIL FOR LOGIN">
+                <input type="password" name="adminpassword" placeholder="Enter your password..">
+                <input type="password" name="password2" placeholder="Repeat password..">
+                <input type="text" name="adminname" placeholder="Enter your Name.."/>
+                <button type="submit" formaction="/create-admin-success">Create Admin</button>
+            </form>
+        </div>
+        <p class="errormessage" th:text="${#ctx.message}"></p>
+        <div th:if="${session.currentAdmin != null}">
+            <span th:text="${session.currentAdmin.adminemail}"> </span> |
+            <a href="/logout" th:href="@{/logout}">Logout</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

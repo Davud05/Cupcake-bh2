@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>ADMIN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/login-styles.css" th:href="@{../css/login-styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<header>
+
+</header>
+    <div id="page-container">
+
+        <div id="page-content">
+            <a href="index.html" th:href="@{/public}">
+                <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="80%"/>
+            </a>
+            <h1>Admin</h1>
+
+                <div class="centered-form">
+                    <form method="post">
+                        <input type="text" name="adminemail" placeholder="Enter your Email.."/>
+                        <input type="password" name="adminpassword" placeholder="Enter your password..">
+                        <button type="submit" formaction="/login-admin-success">Log in</button>
+                    </form>
+                </div>
+            <p class="errormessage" th:text="${message}"></p>
+            <a href="createadmin.html" th:href="@{/createadmin}">Create Admin</a> - -
+            <a th:href="@{/}"> Go Back To Customer Login </a>
+        </div>
+    </div>
+    <div th:if="${session.currentAdmin != null}">
+        <span th:text="${session.currentAdmin.adminemail}"> </span> |
+        <a href="/logout" th:href="@{/adminlogout}">Logout</a>
+    </div>
+</body>
+</html>

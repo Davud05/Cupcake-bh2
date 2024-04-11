@@ -3,27 +3,27 @@ package app.controllers;
 import app.entities.*;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.FoodMapper;
 import app.persistence.ProductlineMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 import java.util.List;
 
-public class ProductlineController {
+public class CupcakeController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("orderview", ctx -> index(ctx, connectionPool));
+        app.get("order", ctx -> index(ctx, connectionPool));
         app.post("search", ctx -> search(ctx, connectionPool));
         app.get("search", ctx -> ctx.render("cupcake.html"));
         app.post("addorder", ctx -> addToOrder(ctx, connectionPool));
         app.get("addorder", ctx -> ctx.render("addorders.html"));
     }
 
+
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String top = ctx.formParam("top");
         String bottom = ctx.formParam("bottom");
         int productlineAmount = Integer.parseInt(ctx.formParam("quantity"));
-        if (!(("Vælg topping").equals(top)) || !(("Vælg bund").equals(bottom))) {
+        if ((!("Choose Topping").equals(top)) && (!("Choose Bottom").equals(bottom)) && (productlineAmount > 0)) {
 
             try {
                 List<Productline> productlineList = ProductlineMapper.search(top, bottom, productlineAmount, connectionPool);

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<title>Frontpage</title>
+<title>Customer</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/login-styles.css" th:href="@{/css/login-styles.css}" rel="stylesheet"/>
@@ -9,12 +9,14 @@
 
 <body>
 <header>
-    <a href="index.html" th:href="@{/}">
-        <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="35%"/>
-    </a>
+
 </header>
     <div id="page-container">
+
         <div id="page-content">
+            <a href="index.html" th:href="@{/}">
+                <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="80%"/>
+            </a>
             <h1>Cupcake</h1>
 
                 <div class="centered-form">
@@ -26,6 +28,7 @@
                 </div>
             <p class="errormessage" th:text="${message}"></p>
             <a href="createcustomer.html" th:href="@{/createcustomer}">Create Customer</a>
+            <a href="__admin-login.html" th:href="@{/admin}">  [ADMIN] Login  </a>
         </div>
     </div>
     <div th:if="${session.currentCustomer != null}">

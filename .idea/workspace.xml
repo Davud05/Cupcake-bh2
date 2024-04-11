@@ -5,16 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CupcakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/entities/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/persistence/AdminMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/cart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/cupcakelogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/__admin-login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/__admin-oversigt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addorder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/productlines.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/task.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/TopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/TopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/TopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/TopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createcustomer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createorder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createorder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/ProductlineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/ProductlineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/vieworders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/vieworders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/FoodController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/Food.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/FoodMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/persistence/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,15 +115,15 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates\admin" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\java\app\persistence" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\java\app\entities" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\java\app\controllers" />
-      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public\images" />
       <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\public" />
-      <recent name="C:\Users\nb199\Desktop\CONTROL-ROOM\java\Cupcake-bh2\src\main\resources\templates" />
       <recent name="C:\Users\jejol\IdeaProjects\Cupcake-bh2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -165,6 +183,9 @@
       <workItem from="1712542385142" duration="2633000" />
       <workItem from="1712545364184" duration="10629000" />
       <workItem from="1712579663759" duration="6811000" />
+      <workItem from="1712776347042" duration="10238000" />
+      <workItem from="1712790215685" duration="11766000" />
+      <workItem from="1712814244587" duration="6160000" />
     </task>
     <servers />
   </component>

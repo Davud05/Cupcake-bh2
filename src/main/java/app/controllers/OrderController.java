@@ -1,13 +1,10 @@
 package app.controllers;
 
 import app.entities.Customer;
-import app.entities.Food;
 import app.entities.Order;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.FoodMapper;
 import app.persistence.OrderMapper;
-import app.persistence.ProductlineMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
