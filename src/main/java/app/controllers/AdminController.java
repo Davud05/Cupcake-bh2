@@ -28,14 +28,19 @@ public class AdminController
         app.get("vieworders", ctx -> ctx.render("vieworders.html"));
 */
 
+
+
+        app.post("login-admin-success", ctx -> adminlogin(ctx, connectionPool));
         app.post("create-admin-success", ctx -> createAdmin(ctx, connectionPool));
-        app.get("create-admin-success", ctx -> ctx.render("index.html"));
+        app.get("create-admin-success", ctx -> ctx.render("createadmin.html"));
+        app.get("login-admin-success", ctx -> ctx.render("__admin-oversigt.html"));
         app.get("createadmin", ctx -> ctx.render("createadmin.html"));
         app.post("createadmin", ctx -> createAdmin(ctx, connectionPool));
 
-        app.post("adminlogin", ctx -> login(ctx, connectionPool));
-        app.get("adminlogout", ctx -> logout(ctx));
-        app.get("/admin/", ctx -> ctx.render("index.html"));
+        app.post("adminlogin", ctx -> adminlogin(ctx, connectionPool));
+        app.get("adminlogout", ctx -> adminlogout(ctx));
+        app.get("admin", ctx -> ctx.render("__admin-login.html"));
+
     }
 
 
@@ -55,33 +60,33 @@ public class AdminController
         {
             try
             {
-                CustomerMapper.createCustomer(adminemail, adminpassword,adminname, connectionPool);
+                AdminMapper.createAdmin(adminemail, adminpassword,adminname, connectionPool);
                 ctx.attribute("message", "Du er hermed oprettet som ADMIN med email: " + adminemail +
                         ". Nu skal du logge på.");
-                ctx.render("index.html");
+                ctx.render("__admin-login.html");
             }
             catch (DatabaseException e)
             {
                 ctx.attribute("message", "Din Email findes allerede. Prøv igen, eller log ind");
-                ctx.render("index.html");
+                ctx.render("__admin-login.html");
             }
         }
         else
         {
             ctx.attribute("message", "Dine to passwords matcher ikke! Prøv igen");
-            ctx.render("index.html");
+            ctx.render("__admin-login.html");
         }
 
     }
 
-    private static void logout(Context ctx)
+    private static void adminlogout(Context ctx)
     {
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
     }
 
 
-    public static void login(Context ctx, ConnectionPool connectionPool)
+    public static void adminlogin(Context ctx, ConnectionPool connectionPool)
     {
         // Hent form parametre
         String adminEmail = ctx.formParam("adminemail");
@@ -94,13 +99,13 @@ public class AdminController
             ctx.sessionAttribute("currentAdmin", admin);
             // Hvis ja, send videre til forsiden med login besked
             ctx.attribute("message", "Du er nu logget ind");
-            ctx.render("/cupcake.html");
+            ctx.render("/__admin-oversigt.html");
         }
         catch (DatabaseException e)
         {
             // Hvis nej, send tilbage til login side med fejl besked
             ctx.attribute("message", e.getMessage() );
-            ctx.render("/index.html");
+            ctx.render("/__admin-login.html");
         }
 
     }

@@ -23,17 +23,17 @@
                     <form method="post">
                         <input type="text" name="adminemail" placeholder="Enter your Email.."/>
                         <input type="password" name="adminpassword" placeholder="Enter your password..">
-                        <button type="submit" formaction="/login">Log in</button>
+                        <button type="submit" formaction="/login-admin-success">Log in</button>
                     </form>
                 </div>
             <p class="errormessage" th:text="${message}"></p>
-            <a href="createcustomer.html" th:href="@{/createcustomer}">Create Customer</a>
-            <a th:href="@{/admin/index.html}"> Go To Admin Login :> </a>
+            <a href="createadmin.html" th:href="@{/createadmin}">Create Admin</a> - -
+            <a th:href="@{/}"> Go Back To Customer Login </a>
         </div>
     </div>
-    <div th:if="${session.currentCustomer != null}">
-        <span th:text="${session.currentCustomer.customeremail}"> </span> |
-        <a href="/logout" th:href="@{/logout}">Logout</a>
+    <div th:if="${session.currentAdmin != null}">
+        <span th:text="${session.currentAdmin.adminemail}"> </span> |
+        <a href="/logout" th:href="@{/adminlogout}">Logout</a>
     </div>
 </body>
 </html>

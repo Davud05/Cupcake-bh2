@@ -28,7 +28,7 @@
                 </div>
             <p class="errormessage" th:text="${message}"></p>
             <a href="createcustomer.html" th:href="@{/createcustomer}">Create Customer</a>
-            <a href="__admin-login.html" th:href="@{/__admin-login}"> Go To Admin Login :> </a>
+            <a href="__admin-login.html" th:href="@{/admin}">  [ADMIN] Login  </a>
         </div>
     </div>
     <div th:if="${session.currentCustomer != null}">

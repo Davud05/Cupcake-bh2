@@ -17,11 +17,7 @@ public class CupcakeController {
         app.post("addorder", ctx -> addToOrder(ctx, connectionPool));
         app.get("addorder", ctx -> ctx.render("addorders.html"));
     }
-    private static void findTop(Context ctx, ConnectionPool connectionPool) {
-        String top = ctx.queryParam("top");
-        String bottom = ctx.queryParam("bottom");
 
-    }
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String top = ctx.formParam("top");
