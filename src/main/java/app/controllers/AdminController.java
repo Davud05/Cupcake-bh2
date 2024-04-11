@@ -30,16 +30,19 @@ public class AdminController
 
 
 
-        app.post("login-admin-success", ctx -> adminlogin(ctx, connectionPool));
         app.post("create-admin-success", ctx -> createAdmin(ctx, connectionPool));
-        app.get("create-admin-success", ctx -> ctx.render("createadmin.html"));
-        app.get("login-admin-success", ctx -> ctx.render("__admin-oversigt.html"));
+        app.get("create-admin-success", ctx -> ctx.render("__admin-login.html"));
         app.get("createadmin", ctx -> ctx.render("createadmin.html"));
         app.post("createadmin", ctx -> createAdmin(ctx, connectionPool));
 
+
+        app.post("admin-login-success", ctx -> adminlogin(ctx, connectionPool));
+        app.get("admin-login-success", ctx -> ctx.render("__admin-overview.html"));
+        app.get("adminlogin", ctx -> ctx.render("__admin-login.html"));
         app.post("adminlogin", ctx -> adminlogin(ctx, connectionPool));
         app.get("adminlogout", ctx -> adminlogout(ctx));
-        app.get("admin", ctx -> ctx.render("__admin-login.html"));
+
+
 
     }
 

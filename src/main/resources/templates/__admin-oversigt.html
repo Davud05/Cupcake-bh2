@@ -11,7 +11,7 @@
 
 <div id="page">
     <header>
-        <a href="cupcake.html" th:href="@{/public}">
+        <a href="cupcake.html" th:href="@{/}">
             <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="85%"/>
         </a>
     </header>
@@ -22,10 +22,11 @@
             <a href="/cart">Shopping Cart</a>
         </div>
         <div id="right-nav">
-            <div th:if="${session.currentAdmin != null}">
-                <span th:text="${session.currentAdmin.adminemail}"> </span>
+
+            <div th:if="${session.currentCustomer != null}">
+                <span th:text="${session.currentCustomer.customeremail}"> </span>
                 <a href="/logout" th:href="@{/logout}">Logout</a>
-            <span th:text="${session.currentAdmin.adminname}"></span>
+                <span th:text="${session.currentCustomer.customername}"></span>
                 <div>
                     <a href="/vieworders.html">
                         <img src="../public/images/cart.png" th:src="@{/images/cart.png}" width="15%"/>
@@ -37,26 +38,58 @@
     <div id="content">
 
         <div id="intro-text">
-            <h1>ADMIN PANEL</h1>
+            <h1>Velkommen ombord</h1>
             <h2>Øens bedste cupcakes</h2>
         </div>
 
         <form method="post">
             <div id="dropdowns">
-    <!--
-                    <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
-                    <input type="password" name="customerpassword" placeholder="Enter your password..">
-                    <input type="password" name="customerpassword2" placeholder="Repeat password..">
-                    <input type="text" name="customername" placeholder="Enter your Name.."/>
-    -->
-                            <!-- Loop through the list using Thymeleaf -->
-                           <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
-    -->
+                <!--
+                                <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
+                                <input type="password" name="customerpassword" placeholder="Enter your password..">
+                                <input type="password" name="customerpassword2" placeholder="Repeat password..">
+                                <input type="text" name="customername" placeholder="Enter your Name.."/>
+                -->
+                <!-- Loop through the list using Thymeleaf -->
+                <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
+-->
+                <select name="top" id="top">
+                    <option selected disabled>Choose Topping</option>
+                    <option th:each="top: ${topName}" th:value="${topPrice}"></option>
+                    <option value="chocolate">Chokolade (5 kr)</option>
+                    <option value="blueberry">Blåbær (5 kr)</option>
+                    <option value="raspberry">Hindbær (5 kr)</option>
+                    <option value="crispy">Crispy (6 kr)</option>
+                    <option value="strawberry">Jordbær (6 kr)</option>
+                    <option value="rum/raisin">Rom/russin (7 kr)</option>
+                    <option value="orange">Appelsin (8 kr)</option>
+                    <option value="lemon">Citron (8 kr)</option>
 
-<!--                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
+                </select>
+                <select name="bottom" id="bottom">
+                    <option selected disabled>Choose Bottom</option>
+                    <option th:each="bottom: ${bottomName}" th:value="${bottomPrice}"></option>
+                    <option value="chocolate">Chokolade (5 kr)</option>
+                    <option value="vanilla">Vanilje (5 kr)</option>
+                    <option value="nutmeg">Muskatnød (5 kr)</option>
+                    <option value="pistacio">Pistacie (6 kr)</option>
+                    <option value="almond">Mandel (7 kr)</option>
+                </select>
+                <select name="quantity" id="quantity">
+                    <option selected disabled>Choose Amount</option>
+                    <option th:each="quantity: ${quantity}" th:value="${quantity}"></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <!--                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
 
             </div>
-
+            <div id="order-button">
+                <button type="submit" name="search" formaction="/addorder">Bestil</button>
+            </div>
         </form>
 
     </div>
