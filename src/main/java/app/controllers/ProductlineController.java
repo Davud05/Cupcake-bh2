@@ -19,13 +19,13 @@ public class ProductlineController {
     }
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String top = ctx.formParam("top");
+        String tops = ctx.formParam("tops");
         String bottom = ctx.formParam("bottom");
         int productlineAmount = Integer.parseInt(ctx.formParam("quantity"));
-        if ((!("Choose Topping").equals(top)) && (!("Choose Bottom").equals(bottom)) && (productlineAmount > 0)) {
+        if ((!("Choose Topping").equals(tops)) && (!("Choose Bottom").equals(bottom)) && (productlineAmount > 0)) {
 
             try {
-                List<Productline> productlineList = ProductlineMapper.search(top, bottom, productlineAmount, connectionPool);
+                List<Productline> productlineList = ProductlineMapper.search(tops, bottom, productlineAmount, connectionPool);
                 if (productlineList.isEmpty()) {
                     ctx.attribute("message", "There are no cupcakes");
                     ctx.render("index.html");

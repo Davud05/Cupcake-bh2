@@ -31,5 +31,6 @@ public class Main {
         AdminController.addRoutes(app, connectionPool);
         ProductlineController.addRoutes(app, connectionPool);
         OrderController.addRoutes(app, connectionPool);
+        TopController.addRoutes(app, connectionPool);
     }
 }

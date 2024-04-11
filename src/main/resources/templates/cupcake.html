@@ -53,9 +53,9 @@
                             <!-- Loop through the list using Thymeleaf -->
                            <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
     -->
-                        <select name="top" id="top">
+                        <select name="tops" id="tops">
                             <option selected disabled>Choose Topping</option>
-                            <option th:each="top: ${topName}" th:value="${topPrice}"></option>
+                            <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
                             <option value="chocolate">Chokolade (5 kr)</option>
                             <option value="blueberry">Blåbær (5 kr)</option>
                             <option value="raspberry">Hindbær (5 kr)</option>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Oversigt</title>
+    <title>Tasks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
@@ -36,8 +36,6 @@
         </div>
     </nav>
     <div id="content">
-
-
         <form method="post">
             <div id="dropdowns">
                 <!--
@@ -47,14 +45,11 @@
                                 <input type="text" name="customername" placeholder="Enter your Name.."/>
                 -->
                 <!-- Loop through the list using Thymeleaf -->
-                <select th:each="topList: ${topList}" th:value="${topListStat.id}" th:text="${tops.name}">
-                    <option th:text="tops: ${topName}" th:value="${topPrice}"></option>
-
-                </select>
-                    <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
+                <option th:each="productlineList : ${TopController.topList}" th:value="${tops.id}" th:text="${tops.name}"></option>
 
                 <select name="tops" id="tops">
 
+                    <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
 
 
                 </select>
@@ -75,21 +70,24 @@
             </div>
         </form>
 
+        <div id="intro-text">
+            <h1>Admin Panel</h1>
+        </div>
+
+        <form method="post">
+            <div>
+                <button id="create-button" type="submit" name="createorder" formaction="/createorder">Create Order</button>
+                <button id="read-button" type="submit" name="readorder" formaction="/readorder">Read Order</button>
+                <button id="update-button" type="submit" name="updateorder" formaction="/updateorder">Update Order</button>
+                <button id="delete-button" type="submit" name="deleteorder" formaction="/deleteorder">Delete Order</button>
+                <button class="create-button" type="submit" name="list-tops" formaction="/list-tops">View TOPPING CUPCAKES</button>
+            </div>
+        </form>
+
     </div>
 
 
-    <p class="errormessage" th:text="${#ctx.message}"></p>
-</div>
 
-<form method="post">
-    <div class="order-button button button:hover">
-        <button id="create-button" type="submit" name="createorder" formaction="/createorder">Create Order</button>
-        <button id="read-button" type="submit" name="readorder" formaction="/readorder">Read Order</button>
-        <button id="update-button" type="submit" name="updateorder" formaction="/updateorder">Update Order</button>
-        <button id="delete-button" type="submit" name="deleteorder" formaction="/deleteorder">Delete Order</button>
-        <button id="list-tops-button" type="submit" name="deleteorder" formaction="/list-tops">View TOPPING CUPCAKES</button>
-    </div>
-</form>
 
     <p class="errormessage" th:text="${#ctx.message}"></p>
 </div>
