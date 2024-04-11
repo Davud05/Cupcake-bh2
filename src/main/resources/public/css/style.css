@@ -65,16 +65,56 @@ nav {
     margin-top: 20px;
 
 }
-
 #order-button button:hover {
-    background-color: lightgreen;
+    background-color: lightskyblue;
 }
 
-#order-button button {
+.create-button button:hover {
+    background-color: lightskyblue;
+}
+
+.create-button button {
     width: 80px;
     height:40px;
     font-size: 1.3rem;
-    background-color: green;
+    background-color: lightskyblue;
+    color: white;
+    cursor: pointer;
+}
+
+.read-button button:hover {
+    background-color: coral;
+}
+
+.read-button button {
+    width: 80px;
+    height:40px;
+    font-size: 1.3rem;
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+}
+.update-button button:hover {
+    background-color: springgreen;
+}
+
+.update-button button {
+    width: 80px;
+    height:40px;
+    font-size: 1.3rem;
+    background-color: springgreen;
+    color: white;
+    cursor: pointer;
+}
+.delete-button button:hover {
+    background-color: mediumvioletred;
+}
+
+.delete-button button {
+    width: 80px;
+    height:40px;
+    font-size: 1.3rem;
+    background-color: mediumvioletred;
     color: white;
     cursor: pointer;
 }
