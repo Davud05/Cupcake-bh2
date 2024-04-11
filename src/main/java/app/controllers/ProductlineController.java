@@ -3,7 +3,6 @@ package app.controllers;
 import app.entities.*;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.FoodMapper;
 import app.persistence.ProductlineMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
