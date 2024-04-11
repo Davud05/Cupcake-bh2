@@ -26,8 +26,9 @@ public class Main {
 
         // Routing
         app.get("/", ctx -> ctx.render("/index.html"));
-       // app.post("/createcustomer", ctx -> ctx.render("/cupcake"));
+
         CustomerController.addRoutes(app, connectionPool);
+        AdminController.addRoutes(app, connectionPool);
         ProductlineController.addRoutes(app, connectionPool);
         OrderController.addRoutes(app, connectionPool);
     }

@@ -11,7 +11,7 @@
 
 <div id="page">
     <header>
-        <a href="cupcake.html" th:href="@{/}">
+        <a href="cupcake.html" th:href="@{/public}">
             <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="85%"/>
         </a>
     </header>
@@ -22,11 +22,10 @@
             <a href="/cart">Shopping Cart</a>
         </div>
         <div id="right-nav">
-
-            <div th:if="${session.currentCustomer != null}">
-                <span th:text="${session.currentCustomer.customeremail}"> </span>
+            <div th:if="${session.currentAdmin != null}">
+                <span th:text="${session.currentAdmin.adminemail}"> </span>
                 <a href="/logout" th:href="@{/logout}">Logout</a>
-            <span th:text="${session.currentCustomer.customername}"></span>
+            <span th:text="${session.currentAdmin.adminname}"></span>
                 <div>
                     <a href="/vieworders.html">
                         <img src="../public/images/cart.png" th:src="@{/images/cart.png}" width="15%"/>

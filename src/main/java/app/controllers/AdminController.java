@@ -1,17 +1,19 @@
 package app.controllers;
 
-import app.entities.*;
+import app.entities.Admin;
+import app.entities.Customer;
 import app.exceptions.DatabaseException;
-import app.persistence.*;
+import app.persistence.AdminMapper;
+import app.persistence.ConnectionPool;
+import app.persistence.CustomerMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
-import java.util.List;
-
-public class CustomerController
+public class AdminController
 {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
+
         /*
         app.post("search", ctx -> search(ctx, connectionPool));
         app.get("search", ctx -> ctx.render("cupcake.html"));
@@ -26,14 +28,14 @@ public class CustomerController
         app.get("vieworders", ctx -> ctx.render("vieworders.html"));
 */
 
-        app.post("create-customer-success", ctx -> createCustomer(ctx, connectionPool));
-        app.get("create-customer-success", ctx -> ctx.render("index.html"));
-        app.get("createcustomer", ctx -> ctx.render("createcustomer.html"));
-        app.post("createcustomer", ctx -> createCustomer(ctx, connectionPool));
+        app.post("create-admin-success", ctx -> createAdmin(ctx, connectionPool));
+        app.get("create-admin-success", ctx -> ctx.render("index.html"));
+        app.get("createadmin", ctx -> ctx.render("createadmin.html"));
+        app.post("createadmin", ctx -> createAdmin(ctx, connectionPool));
 
-        app.post("login", ctx -> login(ctx, connectionPool));
-        app.get("logout", ctx -> logout(ctx));
-        app.get("cupcake", ctx -> ctx.render("cupcake.html"));
+        app.post("adminlogin", ctx -> login(ctx, connectionPool));
+        app.get("adminlogout", ctx -> logout(ctx));
+        app.get("/admin/", ctx -> ctx.render("index.html"));
     }
 
 
@@ -41,21 +43,20 @@ public class CustomerController
         ctx.render("/index.html");
     }
 
-
-    private static void createCustomer(Context ctx, ConnectionPool connectionPool)
+    private static void createAdmin(Context ctx, ConnectionPool connectionPool)
     {
         // Hent form parametre
-        String customeremail = ctx.formParam("customeremail");
-        String customerpassword = ctx.formParam("customerpassword");
+        String adminemail = ctx.formParam("adminemail");
+        String adminpassword = ctx.formParam("adminpassword");
         String password2 = ctx.formParam("password2");
-        String customername = ctx.formParam("customername");
+        String adminname = ctx.formParam("adminname");
 
-        if (customerpassword.equals(password2))
+        if (adminpassword.equals(password2))
         {
             try
             {
-                CustomerMapper.createCustomer(customeremail, customerpassword,customername, connectionPool);
-                ctx.attribute("message", "Du er hermed oprettet med email: " + customeremail +
+                CustomerMapper.createCustomer(adminemail, adminpassword,adminname, connectionPool);
+                ctx.attribute("message", "Du er hermed oprettet som ADMIN med email: " + adminemail +
                         ". Nu skal du logge på.");
                 ctx.render("index.html");
             }
@@ -83,14 +84,14 @@ public class CustomerController
     public static void login(Context ctx, ConnectionPool connectionPool)
     {
         // Hent form parametre
-        String customerEmail = ctx.formParam("customeremail");
-        String customerPassword = ctx.formParam("customerpassword");
+        String adminEmail = ctx.formParam("adminemail");
+        String adminPassword = ctx.formParam("adminpassword");
 
         // Check om bruger findes i DB med de angivne username + password
         try
         {
-            Customer customer = CustomerMapper.login(customerEmail, customerPassword, connectionPool);
-            ctx.sessionAttribute("currentCustomer", customer);
+            Admin admin = AdminMapper.login(adminEmail, adminPassword, connectionPool);
+            ctx.sessionAttribute("currentAdmin", admin);
             // Hvis ja, send videre til forsiden med login besked
             ctx.attribute("message", "Du er nu logget ind");
             ctx.render("/cupcake.html");

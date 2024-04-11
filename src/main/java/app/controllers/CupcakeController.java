@@ -9,13 +9,18 @@ import io.javalin.http.Context;
 
 import java.util.List;
 
-public class ProductlineController {
+public class CupcakeController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("orderview", ctx -> index(ctx, connectionPool));
+        app.get("order", ctx -> index(ctx, connectionPool));
         app.post("search", ctx -> search(ctx, connectionPool));
         app.get("search", ctx -> ctx.render("cupcake.html"));
         app.post("addorder", ctx -> addToOrder(ctx, connectionPool));
         app.get("addorder", ctx -> ctx.render("addorders.html"));
+    }
+    private static void findTop(Context ctx, ConnectionPool connectionPool) {
+        String top = ctx.queryParam("top");
+        String bottom = ctx.queryParam("bottom");
+
     }
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {

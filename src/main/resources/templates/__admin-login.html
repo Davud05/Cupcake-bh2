@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<title>Customer</title>
+<title>ADMIN</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/css/login-styles.css" th:href="@{/css/login-styles.css}" rel="stylesheet"/>
+<link href="../css/login-styles.css" th:href="@{../css/login-styles.css}" rel="stylesheet"/>
 </head>
 
 <body>
@@ -14,21 +14,21 @@
     <div id="page-container">
 
         <div id="page-content">
-            <a href="index.html" th:href="@{/}">
+            <a href="index.html" th:href="@{/public}">
                 <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="80%"/>
             </a>
-            <h1>Cupcake</h1>
+            <h1>Admin</h1>
 
                 <div class="centered-form">
                     <form method="post">
-                        <input type="text" name="customeremail" placeholder="Enter your Email.."/>
-                        <input type="password" name="customerpassword" placeholder="Enter your password..">
+                        <input type="text" name="adminemail" placeholder="Enter your Email.."/>
+                        <input type="password" name="adminpassword" placeholder="Enter your password..">
                         <button type="submit" formaction="/login">Log in</button>
                     </form>
                 </div>
             <p class="errormessage" th:text="${message}"></p>
             <a href="createcustomer.html" th:href="@{/createcustomer}">Create Customer</a>
-            <a href="__admin-login.html" th:href="@{/__admin-login}"> Go To Admin Login :> </a>
+            <a th:href="@{/admin/index.html}"> Go To Admin Login :> </a>
         </div>
     </div>
     <div th:if="${session.currentCustomer != null}">

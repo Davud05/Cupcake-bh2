@@ -32,7 +32,7 @@ public class ProductlineMapper {
         }
         return productlineList;
     }
-    public static Order addToOrder(int customerId, ConnectionPool connectionPool) throws DatabaseException
+  /*  public static Order addToOrder(int customerId, ConnectionPool connectionPool) throws DatabaseException
     {
         Order newOrder = null;
 
@@ -77,6 +77,45 @@ public class ProductlineMapper {
         {
             throw new DatabaseException("Error in database connection", e.getMessage());
         }
+        return newOrder;
+    }
+
+   */
+    public static Order addToOrder(int customerId, ConnectionPool connectionPool) throws DatabaseException {
+        Order newOrder = null;
+
+        String sql = "INSERT INTO public.order (customer_id, order_date, order_price)\n" +
+                "SELECT \n" +
+                "    customer.customer_id, \n" +
+                "    CURRENT_DATE, \n" +
+                "    SUM(productline.productline_price) \n" +
+                "FROM \n" +
+                "    public.customer\n" +
+                "INNER JOIN \n" +
+                "    public.order ON customer.customer_id = public.order.customer_id WHERE customer.customer_id=? \n" +
+                "INNER JOIN \n" +
+                "    public.productline ON public.productline.order_id = public.order.order_id \n" +
+                "GROUP BY \n" +
+                "    customer.customer_id;";
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setInt(1, customerId);
+            int rowsAffected = ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rowsAffected == 1 && rs.next()) {
+                int orderId = rs.getInt("order_id");
+                int orderAmount = rs.getInt("order_amount"); // Assuming this field exists in the result set
+                String orderDate = String.valueOf(rs.getDate("CURRENT_DATE"));
+                int orderPrice = rs.getInt("productline_price"); // Assuming this field exists in the result set
+                newOrder = new Order(orderId, customerId, orderAmount, orderDate, orderPrice);
+            } else {
+                throw new DatabaseException("Error while adding an order: " + newOrder);
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Error in database connection", e.getMessage());
+        }
+
         return newOrder;
     }
 
