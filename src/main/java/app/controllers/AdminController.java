@@ -42,8 +42,10 @@ public class AdminController
         app.post("adminlogin", ctx -> adminlogin(ctx, connectionPool));
         app.get("adminlogout", ctx -> adminlogout(ctx));
 
+        // TESTING CONTROLLERS
 
-
+        app.post("__admin-ordrer-oversigt", ctx -> createAdmin(ctx, connectionPool));
+        app.get("__admin-ordrer-oversigt", ctx -> ctx.render("__admin-ordrer-oversigt.html"));
     }
 
 

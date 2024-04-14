@@ -32,24 +32,12 @@ public class ProductlineMapper {
         }
         return productlineList;
     }
-  /*  public static Order addToOrder(int customerId, ConnectionPool connectionPool) throws DatabaseException
+    /*private static void addToOrder(int customerId, ConnectionPool connectionPool) throws DatabaseException
     {
         Order newOrder = null;
 
         String sql = "INSERT INTO public.order (customer_id, order_date, order_price)\n" +
-                "SELECT \n" +
-                "    customer.customer_id, \n" +
-                "    CURRENT_DATE, \n" +
-                "    SUM(productline.productline_price) \n" +
-                "FROM \n" +
-                "    public.customer\n" +
-                "INNER JOIN \n" +
-                "    public.order ON customer.customer_id = public.order.customer_id WHERE customer.customer_id=? \n" +
-                "INNER JOIN \n" +
-                "    public.productline ON public.productline.order_id = public.order.order_id \n" +
-                "GROUP BY \n" +
-                "    customer.customer_id;";
-
+                "SELECT customer.customer_id, CURRENT_DATE, SUM(productline.productline_price)FROM public.customer INNER JOIN public.order ON customer.customer_id = public.order.customer_id WHERE customer.customer_id=? INNER JOIN public.productline ON public.productline.order_id = public.order.order_id GROUP BY customer.customer_id";
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)

@@ -38,8 +38,17 @@
             <h1>Admin Panel</h1>
             <h2>View Cupcake</h2>
         </div>
-
                 <form method="post">
+                    <tr th:each="tops : ${topList}">
+                        <td th:text="${tops.name}"></td>
+                        <td><a th:href="@{/topList}" th:text="Description">Description</a></td>
+                        <td th:each="bottom : ${bottomList}">
+                            <ul>
+                                <li th:text="${ing.ingredientName}"></li>
+                            </ul>
+                        </td>
+                    </tr>
+
                     <tr th:each="menu : ${menuList}">
                         <td th:text="${menu.name}"></td>
                         <td><a th:href="@{/foodDescription}" th:text="Description">Description</a></td>
@@ -50,12 +59,6 @@
                         </td>
                     </tr>
 
-
-
-
-
-
-
                     <div id="dropdowns">
                         <!--
                                         <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
@@ -64,24 +67,12 @@
                                         <input type="text" name="customername" placeholder="Enter your Name.."/>
                         -->
                         <!-- Loop through the list using Thymeleaf -->
-                         <option th:each="productlineList : ${TopController.productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
-                        <select name="tops" id="tops">
+                         <select name="tops"  id="tops" th:each="topList: ${topList}" th:value="${topId}">
+                             <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
+                         </select>
+                        <!-- <select name="tops"  id="tops" th:each="productlineList : ${TopController.productlineList}" th:value="${item.id}" th:text="${bottom.name}"> -->
 
-                            <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
-
-
-                        </select>
-                        <select name="bottom" id="bottom">
-                            <option th:each="bottom: ${bottomName}" th:value="${bottomPrice}"></option>
-
-                        </select>
-                        <select name="quantity" id="quantity">
-
-                            <option th:each="quantity: ${quantity}" th:value="${quantity}"></option>
-
-                        </select>
-                        <!--                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
-
+                        <!--              <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
                     </div>
                     <div id="order-button">
                         <button type="submit" name="search" formaction="/addorder">Bestil</button>
@@ -107,4 +98,4 @@
 </div>
 
 </body>
-</html>
+</html>i

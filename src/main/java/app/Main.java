@@ -23,7 +23,6 @@ public class Main {
             config.fileRenderer(new JavalinThymeleaf(ThymeleafConfig.templateEngine()));
         }).start(7070);
 
-
         // Routing
         app.get("/", ctx -> ctx.render("/index.html"));
 
@@ -31,6 +30,8 @@ public class Main {
         AdminController.addRoutes(app, connectionPool);
         ProductlineController.addRoutes(app, connectionPool);
         OrderController.addRoutes(app, connectionPool);
+
         TopController.addRoutes(app, connectionPool);
+        BottomController.addRoutes(app, connectionPool);
     }
 }

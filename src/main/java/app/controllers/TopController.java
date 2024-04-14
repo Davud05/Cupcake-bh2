@@ -20,7 +20,7 @@ public class TopController {
         try {
             List<Top> tops = new TopMapper().findAllTops(connectionPool);
             ctx.attribute("topsList", tops);
-            ctx.render("/__admin-magic-page.html"); // Tilføj HTML
+            ctx.render("/cupcake.html"); // Tilføj HTML
         } catch (DatabaseException e) {
             ctx.attribute("message", "Error retrieving tops: " + e.getMessage());
             ctx.render("/__admin-magic-page.html"); // Tilføj HTML

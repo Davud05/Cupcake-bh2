@@ -21,7 +21,7 @@
             <form method="post">
                 <input type="text" name="taskname" placeholder="add new task"/>
                 <button type="submit" formaction="addtask">Add</button>
-            </form>
+
         </div>
         <h2>Todo</h2>
         <table class="task-table">
@@ -45,6 +45,7 @@
             </tr>
 
             </tbody>
+            </form>
         </table>
         <h2>Done</h2>
         <div th:if="${session.currentUser != null}">

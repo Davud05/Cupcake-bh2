@@ -11,6 +11,9 @@ import java.util.List;
 
 public class CupcakeController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
+        app.get("cart", ctx -> index(ctx, connectionPool));
+        app.get("cart", ctx -> ctx.render("cart.html"));
+
         app.get("order", ctx -> index(ctx, connectionPool));
         app.post("search", ctx -> search(ctx, connectionPool));
         app.get("search", ctx -> ctx.render("cupcake.html"));

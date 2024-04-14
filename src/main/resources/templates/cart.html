@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="page">
+    <header>
+        <a href="cupcake.html" th:href="@{/}">
+            <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="100%"/>
+        </a>
+    </header>
+
+    <nav>
+        <div id="left-nav">
+            <a href="/orders">View All Orders</a>
+            <a href="/cart">Shopping Cart</a>
+        </div>
+        <div id="right-nav">
+
+            <div th:if="${session.currentCustomer != null}">
+                <span th:text="${session.currentCustomer.customeremail}"> </span>
+                <a href="/logout" th:href="@{/logout}">Logout</a>
+                <span th:text="${session.currentCustomer.customername}"></span>
+                <div>
+                    <a href="/vieworders.html">
+                        <img src="../public/images/cart.png" th:src="@{/images/cart.png}" width="25%"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="content">
+        <div id="intro-text">
+            <h1>Velkommen ombord  <span th:text="${session.currentCustomer.customeremail}"> </span></h1>
+            <h2>Øens bedste cupcakes</h2>
+        </div>
+    </div>
+    <p class="errormessage" th:text="${#ctx.message}"></p>
+</div>
+
+</body>
+</html>

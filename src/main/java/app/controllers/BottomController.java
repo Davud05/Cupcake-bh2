@@ -11,6 +11,8 @@ import java.util.List;
 
 public class BottomController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
+        app.get("/list-bottoms", ctx -> ctx.render("__admin-magic-page.html"));
+        app.post("/list-bottoms", ctx -> listBottoms(ctx, connectionPool));
         app.get("/bottoms", ctx -> listBottoms(ctx, connectionPool));
     }
 
@@ -18,7 +20,7 @@ public class BottomController {
         try {
             List<Bottom> bottoms = new BottomMapper().findAll(connectionPool); //
             ctx.attribute("bottomsList", bottoms);
-            ctx.render("/cupcake.html");  // Tilføj HTML(Men ved ikke hvordan) c4/index.html"
+            ctx.render("/__admin-magic-page.html");  // Tilføj HTML(Men ved ikke hvordan) c4/index.html"
         } catch (DatabaseException e) {
             ctx.attribute("message", "Error retrieving bottoms: " + e.getMessage());
             ctx.render("/cupcake.html"); // Tilføj HTML(Men ved ikke hvordan)

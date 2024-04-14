@@ -20,8 +20,8 @@
                     <h2>Magic PAGE - TESTING</h2>
                 </div>
                 <div id="right-nav">
-                    <a href="/orders">View All Orders</a>
-                    <a href="/cart">Shopping Cart</a>
+                    <a href="/orders" th:href="@{/vieworders.html}">View All Orders</a>
+                    <a href="/cart" th:href="@{/cart}">Shopping Cart</a>
                     <div th:if="${session.currentCustomer != null}">
                         <span th:text="${session.currentCustomer.customeremail}"> </span>
                         <a href="/logout" th:href="@{/logout}">Logout</a>
@@ -36,7 +36,33 @@
             </nav>
             <div id="content">
                 <div id="intro-text">
+                    <select name="tops" th:each="topList: ${topList}">
+                        <option th:text="${tops.name}" th:value="${tops.price}"></option>
+                    </select>
                     <h4 class="errormessage" th:text="${#ctx.message}"></h4>
+                    <form method="post">
+                        <div id="dropdowns">
+
+                            <!--
+                                            <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
+                                            <input type="password" name="customerpassword" placeholder="Enter your password..">
+                                            <input type="password" name="customerpassword2" placeholder="Repeat password..">
+                                            <input type="text" name="customername" placeholder="Enter your Name.."/>
+
+                             Loop through the list using Thymeleaf
+                            <select name="tops"  id="tops" th:each="topList: ${topList}" th:value="${topId}">
+                                <option th:text="${topname}" th:value="${topPrice}"></option>
+                            </select>
+
+                             <select name="tops"  id="tops" th:each="productlineList : ${TopController.productlineList}" th:value="${item.id}" th:text="${bottom.name}"> -->
+
+
+                            <!--              <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
+                        </div>
+                        <div id="order-button">
+                            <button type="submit" name="search" formaction="/addorder">Bestil</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

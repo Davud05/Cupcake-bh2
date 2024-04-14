@@ -36,10 +36,26 @@
         </div>
     </nav>
     <div id="content">
-
+        <a href="__admin-create-cupcake.html">CREATE A CUPCAKE</a>
+        <a href="__admin-ordrer-oversigt.html">VIEW ORDERS</a>
+        <a href="__admin-magic-page.html">MAGIC PAGE</a>
+        <a href="__admin-oversigt.html">OVERVIEW</a>
+        <br><br>
+        <form method="post">
+            <button id="create-button" type="submit" name="createorder" formaction="/createorder">Create Order</button>
+            <button id="read-button" type="submit" name="readorder" formaction="/readorder">Read Order</button>
+            <button id="update-button" type="submit" name="updateorder" formaction="/updateorder">Update Order</button>
+            <button id="delete-button" type="submit" name="deleteorder" formaction="/deleteorder">Delete Order</button>
+            <button id="list-tops-button" type="submit" name="viewtop" formaction="/list-tops">View TOPPING CUPCAKES</button>
+            <button id="list-bottom-button" type="submit" name="viewbottom" formaction="/list-bottoms">View BOTTOM CUPCAKES</button>
+        </form>
 
         <form method="post">
             <div id="dropdowns">
+                <select th:each="topsList: ${topsList}" th:value="${topPrice}">
+                    <option th:text="${topName}" th:value="${topPrice}"></option>
+                </select>
+            </div>
                 <!--
                                 <input type="text" name="customeremail" placeholder="EMAIL FOR LOGIN">
                                 <input type="password" name="customerpassword" placeholder="Enter your password..">
@@ -47,11 +63,12 @@
                                 <input type="text" name="customername" placeholder="Enter your Name.."/>
                 -->
                 <!-- Loop through the list using Thymeleaf -->
-                <select th:each="topList: ${topList}" th:value="${topListStat.id}" th:text="${tops.name}">
-                    <option th:text="tops: ${topName}" th:value="${topPrice}"></option>
-
+                <select name="tops" th:each="topList: ${topList}">
+                    <option th:text="${tops.name}" th:value="${tops.price}"></option>
                 </select>
-                    <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
+
+                <!--
+                    <option th:each="${topName}" th:value="${topPrice}"></option>
 
                 <select name="tops" id="tops">
 
@@ -67,8 +84,8 @@
                     <option th:each="quantity: ${quantity}" th:value="${quantity}"></option>
 
                 </select>
-                <!--                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
-
+                                   <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
+          </form>
             </div>
             <div id="order-button">
                 <button type="submit" name="search" formaction="/addorder">Bestil</button>
@@ -81,17 +98,7 @@
     <p class="errormessage" th:text="${#ctx.message}"></p>
 </div>
 
-<form method="post">
-    <div class="order-button button button:hover">
-        <button id="create-button" type="submit" name="createorder" formaction="/createorder">Create Order</button>
-        <button id="read-button" type="submit" name="readorder" formaction="/readorder">Read Order</button>
-        <button id="update-button" type="submit" name="updateorder" formaction="/updateorder">Update Order</button>
-        <button id="delete-button" type="submit" name="deleteorder" formaction="/deleteorder">Delete Order</button>
-        <button id="list-tops-button" type="submit" name="deleteorder" formaction="/list-tops">View TOPPING CUPCAKES</button>
-    </div>
-</form>
 
-    <p class="errormessage" th:text="${#ctx.message}"></p>
 </div>
 
 </body>
