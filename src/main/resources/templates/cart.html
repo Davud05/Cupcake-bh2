@@ -15,7 +15,6 @@
             <img src="../public/images/cupcakelogo.png" th:src="@{/images/cupcakelogo.png}" width="100%"/>
         </a>
     </header>
-
     <nav>
         <div id="left-nav">
             <a href="/orders">View All Orders</a>
@@ -37,9 +36,11 @@
     </nav>
     <div id="content">
         <div id="intro-text">
-            <h1>Velkommen ombord  <span th:text="${session.currentCustomer.customeremail}"> </span></h1>
-            <h2>Øens bedste cupcakes</h2>
+            <h1>SHOPPING CART </h1>
+            <h2>for customer: </h2>
+            <span th:text="${session.currentCustomer.customeremail}"></span>
         </div>
+
     </div>
     <p class="errormessage" th:text="${#ctx.message}"></p>
 </div>

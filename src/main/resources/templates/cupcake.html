@@ -18,8 +18,7 @@
 
     <nav>
         <div id="left-nav">
-            <a href="/orders">View All Orders</a>
-            <a href="/cart">Shopping Cart</a>
+            <a href="/cart" th:href="@{/cart}">Shopping Cart</a>
         </div>
         <div id="right-nav">
 
@@ -28,7 +27,7 @@
                 <a href="/logout" th:href="@{/logout}">Logout</a>
             <span th:text="${session.currentCustomer.customername}"></span>
                 <div>
-                    <a href="/vieworders.html">
+                    <a href="/cart.html" th:href="@{/cart}">
                         <img src="../public/images/cart.png" th:src="@{/images/cart.png}" width="25%"/>
                     </a>
                 </div>
@@ -38,7 +37,7 @@
     <div id="content">
 
         <div id="intro-text">
-            <h1>Velkommen ombord</h1>
+            <h1>Velkommen ombord </h1>
             <h2>Øens bedste cupcakes</h2>
         </div>
 
@@ -53,9 +52,9 @@
                             <!-- Loop through the list using Thymeleaf -->
                            <!-- <option th:each="productlineList : ${productlineList}" th:value="${item.id}" th:text="${bottom.name}"></option>
     -->
-                        <select th:field="*{cupcake_top}">
-                            <option selected disabled>Choose Topping</option>
-                            <option th:each="tops: ${topName}" th:value="${topPrice}"></option>
+                        <select th:field="${topName}">
+                            <option selected disabled>Vælg topping</option>
+                          <!--  <option th:each="tops: ${topName}" th:value="${topPrice}" th:text="${topPrice}"></option> -->
                             <option value="chocolate">Chokolade (5 kr)</option>
                             <option value="blueberry">Blåbær (5 kr)</option>
                             <option value="raspberry">Hindbær (5 kr)</option>
@@ -66,24 +65,32 @@
                             <option value="lemon">Citron (8 kr)</option>
 
                         </select>
-                        <select name="bottom" id="bottom">
-                                <option selected disabled>Choose Bottom</option>
-                                <option th:each="bottom: ${bottomName}" th:value="${bottomPrice}"></option>
-                                <option value="chocolate">Chokolade (5 kr)</option>
-                                <option value="vanilla">Vanilje (5 kr)</option>
-                                <option value="nutmeg">Muskatnød (5 kr)</option>
-                                <option value="pistacio">Pistacie (6 kr)</option>
-                                <option value="almond">Mandel (7 kr)</option>
-                        </select>
+
+                <select name="bottom" id="bottom">
+                    <option selected disabled>Vælg bund</option>
+                    <option th:each="bottom: ${bottomName}" th:value="${bottomPrice}"></option>
+                    <option value="chocolate">Chokolade (5 kr)</option>
+                    <option value="vanilla">Vanilje (5 kr)</option>
+                    <option value="nutmeg">Muskatnød (5 kr)</option>
+                    <option value="pistacio">Pistacie (6 kr)</option>
+                    <option value="almond">Mandel (7 kr)</option>
+                </select>
+
                 <select name="quantity" id="quantity">
-                    <option th:each="quantity: ${quantity}" th:value="${quantity}"></option>
+                    <option selected disabled>Choose Bottom</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <!-- <option th:each="quantity: ${quantity}" th:value="${quantity}"></option> -->
 
                 </select>
 <!--                    <input type="text" name="quantity" placeholder="Amount" th:text="${quantity}" th:value="${quantity}"/></input>-->
 
             </div>
             <div id="order-button">
-                <button type="submit" name="search" formaction="/addorder">Bestil</button>
+                <button type="submit" name="search" formaction="/search">Bestil</button>
             </div>
         </form>
 

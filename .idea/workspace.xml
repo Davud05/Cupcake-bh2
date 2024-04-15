@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5307fd40-e8db-42db-9fa1-8cba51731080" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentation/Cupcake ERD diagram fra database.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentation/Cupcake ERD diagram handdrawn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rapport/rapport.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rapport/videolink.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/BottomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/BottomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CupcakeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CupcakeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/TopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/TopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/ProductlineMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/__admin-create-cupcake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/__admin-create-cupcake.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/__admin-magic-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/__admin-magic-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/ProductlineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/ProductlineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/__admin-ordrer-oversigt.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/__admin-ordrer-oversigt.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/__admin-oversigt.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/__admin-oversigt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addorder.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createorder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cupcake.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +50,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
